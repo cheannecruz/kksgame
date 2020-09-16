@@ -26,7 +26,7 @@ var cursors;
 var score = 0;
 var gameOver = false;
 var scoreText;
-
+var bottleCollectSound;
 
 var game = new Phaser.Game(config);
 
@@ -37,8 +37,8 @@ function preload ()
     this.load.image('bottle', 'assets/bottle.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.image('alcoholOne', 'assets/alcohol-1.png');
-    this.load.audio('bottleSound', 'assets/sounds/bottleSound.mp3');
     this.load.spritesheet('dude', 'assets/karen-run.png', { frameWidth: 75, frameHeight: 145 });
+    this.load.audio('bottleSound', 'assets/sounds/bottleSound.mp3');
 }
 
 function create ()
@@ -131,12 +131,6 @@ function create ()
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 
     this.physics.add.collider(player, greenBottles, hitEnemies, null, this);
-
-    bottleSound = this.add.audio('bottleSound', 1);
-
-    bottleSound.loop = true;    
-
-
 }
 
 function update ()
@@ -174,7 +168,7 @@ function update ()
 function collectWater (player, bottle)
 {
     bottle.disableBody(true, true);
-
+    bottleCollectSound = game.sound.play('bottleSound');
     //  Add and update the score
     score += 10;
     scoreText.setText('Score: ' + score);
@@ -197,12 +191,12 @@ function collectWater (player, bottle)
         bomb.allowGravity = false;
 
     }
-    bottleSound.play();
 }
 
 function hitEnemies (player, enemy)
 {
     player.setTint(0xff0000);
+    bottleCollectSound = game.sound.play('bottleSound');
 
     setTimeout( function() {
         player.setTint();
