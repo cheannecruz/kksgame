@@ -27,6 +27,7 @@ var score = 0;
 var gameOver = false;
 var scoreText;
 
+
 var game = new Phaser.Game(config);
 
 function preload ()
@@ -36,6 +37,7 @@ function preload ()
     this.load.image('bottle', 'assets/bottle.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.image('alcoholOne', 'assets/alcohol-1.png');
+    this.load.audio('bottleSound', 'assets/sounds/bottleSound.mp3');
     this.load.spritesheet('dude', 'assets/karen-run.png', { frameWidth: 75, frameHeight: 145 });
 }
 
@@ -129,6 +131,12 @@ function create ()
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 
     this.physics.add.collider(player, greenBottles, hitEnemies, null, this);
+
+    bottleSound = this.add.audio('bottleSound', 1);
+
+    bottleSound.loop = true;    
+
+
 }
 
 function update ()
@@ -189,6 +197,7 @@ function collectWater (player, bottle)
         bomb.allowGravity = false;
 
     }
+    bottleSound.play();
 }
 
 function hitEnemies (player, enemy)
