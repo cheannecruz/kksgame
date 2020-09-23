@@ -76,8 +76,8 @@
     right: 17%;
     width: 15%;
     background-image: url(../assets/bubbles.png);
-    background-size: 300%;
-    animation: bubbles 2s steps(3) infinite;
+    background-size: 400%;
+    animation: bubbles 2s steps(4) infinite;
 }
 
 .lost-bubbles img {
@@ -122,5 +122,5 @@
 
 @keyframes bubbles{
     from{background-position-x: 0%;}
-    to{background-position-x: -300%;}
+    to{background-position-x: -400%;}
 }
