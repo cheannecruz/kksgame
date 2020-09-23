@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #000;
+    background: #fff;
 }
 
 canvas {
@@ -9,12 +9,10 @@ canvas {
 }
 
 #game-ui {
-    background-image: url('../assets/main-bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+    background-color: #000;
     width: auto;
     max-width: 1264px;
+    max-height: 100vh;
     position: relative;
     border: 1px solid navy;
     margin: 0 auto;
@@ -22,16 +20,17 @@ canvas {
 }
 
 .background-rays {
-    background-image: url('../assets/rays-bg.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 150%;
-    width: 150%;
+    height: 100%;
+    width: 100%;
     position: absolute;
     z-index: 10;
-    left: -10%;
-    top: -10%;
-    position: absolute;
+    background-color: #004ed9;
+}
+
+.background-rays img{
+    width: 150%;
+    margin-top: -25%;
+    margin-left: -25%;
     -webkit-animation:spin 50s linear infinite;
     -moz-animation:spin 50s linear infinite;
     animation:spin 50s linear infinite;
@@ -39,34 +38,34 @@ canvas {
 
 .background-platform {
     width: 100%;
-    position: absolute;
+    position: relative;
     z-index: 15;
     top: 0;
     left: 0;
+    display: block;
 }
 
 .background-characters {
-    background-image: url('../assets/character-bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 100%;
-    height: 100%;
     position: absolute;
     z-index: 15;
     left: 0;
-    top: -100px;
+    top: -5%;
 }
 
 #start-button {
     position: absolute;
     bottom: 5%;
     left: 50%;
-    margin-left: -133px;
+    max-width: 300px;
+    transform: translate(-50%, 0);
     z-index: 20;
 }
 
 #start-button img {
-    width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
     transition: transform .2s;
 }
 

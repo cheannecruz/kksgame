@@ -1,0 +1,105 @@
+.lost-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 15;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lost-content-holder {
+    position: relative;
+}
+
+.background-lost {
+    width: 100%;
+    display: block;
+}
+
+.lost-bg {
+    visibility: hidden;
+    width: 100%;
+    display: block;
+}
+
+.lost-button{
+    top: 10%;
+    right: 10%;
+    bottom: auto;
+    left: auto;
+}
+
+.lost-button {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    max-width: 300px;
+    z-index: 20;
+}
+
+.lost-button img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    transition: transform .2s;
+}
+
+.lost-button:hover {
+    cursor: pointer;
+}
+
+.lost-button:hover img {
+    transform: scale(1.1);
+}
+
+.lost-karen {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 30%;
+    background-image: url(../assets/lost-karen.png);
+    background-size: 400%;
+    animation: drunk 2s steps(4) infinite;
+}
+
+.lost-karen img {
+    visibility: hidden;
+}
+
+.drop {
+    background:-webkit-gradient(linear,0% 0%,2% 100%, from(rgb(88, 99, 100) ), to(rgba(255,255,255,0.6))  );
+    background: -moz-linear-gradient(top, rgb(88, 99, 100) 0%, rgba(255,255,255,.6) 100%);
+    width:2px;
+    height:89px;
+    position: absolute;
+    bottom:200px;
+    opacity: 0.2;
+	-webkit-animation: fall .63s linear infinite;
+    -moz-animation: fall .63s linear infinite;
+}
+
+#rain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+	to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+	to {margin-top:900px;}
+}
+
+@keyframes drunk{
+    from{background-position-x: 0%;}
+    to{background-position-x: -400%;}
+  }

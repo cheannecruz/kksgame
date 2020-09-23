@@ -3,15 +3,27 @@
     <head>
         <meta charset="UTF-8" />
         <title>Game Start</title>
-        <script src="js/phaser.js"></script>
-        <link rel="stylesheet" href="assets/style/main.css" />
+        <script src="js/jquery.min.js"></script>
+        <script src="js/lost-rain.js"></script>
+        <link rel="stylesheet" href="style/main.css"/>
+        <link rel="stylesheet" href="style/lost.css" />
     </head>
 
     <body>
-        <div id="game-ui">
-            <a id="home-button" href="index.html">
-                Home
-            </a>
+        <div id="game-ui" class="lost-container">
+            <img class="lost-bg" src="assets/main-bg.png"/>
+            <div class="lost-content">
+                <div class="lost-content-holder">
+                    <img class="background-lost" src="assets/lost-bg.png"/>
+                    <section id="rain"></section>
+                    <div class="lost-karen">
+                        <img class="background-lost" src="assets/lost-fill.png"/>
+                    </div>
+                    <a class="lost-button" href="game.html">
+                        <img class="idle" src="assets/start.png" alt="START">
+                    </a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
