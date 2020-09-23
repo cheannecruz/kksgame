@@ -58,7 +58,7 @@
 .lost-karen {
     position: absolute;
     bottom: 5%;
-    right: 5%;
+    right: 3%;
     width: 30%;
     background-image: url(../assets/lost-karen.png);
     background-size: 400%;
@@ -67,6 +67,22 @@
 
 .lost-karen img {
     visibility: hidden;
+    width: 100%;
+}
+
+.lost-bubbles {
+    position: absolute;
+    bottom: 52%;
+    right: 17%;
+    width: 15%;
+    background-image: url(../assets/bubbles.png);
+    background-size: 300%;
+    animation: bubbles 2s steps(3) infinite;
+}
+
+.lost-bubbles img {
+    visibility: hidden;
+    width: 100%;
 }
 
 .drop {
@@ -102,4 +118,9 @@
 @keyframes drunk{
     from{background-position-x: 0%;}
     to{background-position-x: -400%;}
-  }
+}
+
+@keyframes bubbles{
+    from{background-position-x: 0%;}
+    to{background-position-x: -300%;}
+}
