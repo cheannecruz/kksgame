@@ -1,56 +1,19 @@
-<!doctype html> 
-<html lang="en"> 
-    <head> 
+<!doctype html>
+<html lang="en">
+    <head>
         <meta charset="UTF-8" />
-        <title>Game Start</title>
-        <script src="js/phaser.min.js"></script>
-
-        <style type="text/css">
-            body {
-                margin: 0;
-                background-image: url('assets/menu-background.jpg');
-                background-repeat: no-repeat;
-                height: 450px;
-                width: 848px;
-            }
-
-
-
-            #start-button {
-                position: absolute;
-                top: 200px;
-                left: 600px;
-            }
-
-            #start-button .hover {
-                display: none;
-            }
-
-            #start-button:hover .hover {
-                display: block;
-            }
-
-            #start-button .idle {
-                display: block;
-            }
-
-            #start-button:hover .idle {
-                display: none;
-            }
-
-        </style>
-
+        <title>Keep Karen Sober</title>
+        <link rel="stylesheet" href="style/main.css" />
     </head>
 
     <body>
         <div id="game-ui">
-
+            <div class="background-rays"></div>
+            <img class="background-platform" src="assets/platform-bg.png"/>
+            <div class="background-characters"></div>
             <a id="start-button" href="game.html">
-                <img class="idle" src="assets/start.jpg" alt="START">
-                <img class="hover" src="assets/start-hover.jpg" alt="START">
-            </a>  
-
+                <img class="idle" src="assets/start.png" alt="START">
+            </a>
         </div>
     </body>
-
 </html>
