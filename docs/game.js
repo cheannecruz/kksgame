@@ -3,13 +3,13 @@ console.log("Loading => game.js");
 //=======================================//
 
 var game = new Phaser.Game(
-    800, 
-    600, 
-    Phaser.AUTO, 
-    'phaser-example', 
-    { 
-        preload: preload, 
-        create: create, 
+    800,
+    600,
+    Phaser.AUTO,
+    'phaser-example',
+    {
+        preload: preload,
+        create: create,
         update:update,
         render:render,
         getTime() {
@@ -36,7 +36,7 @@ var game = new Phaser.Game(
 
 //=======================================//
 //  SYSTEM
-//=======================================//  
+//=======================================//
 var deltaTime = 0;
 var nextJump = 0;
 var end_state = "";
@@ -47,13 +47,13 @@ var end_level_time = 3;
 
 //=======================================//
 //  WORLD
-//=======================================//  
+//=======================================//
 var exit;
 
 
 //=======================================//
 //  PLAYER
-//=======================================//  
+//=======================================//
 var score = 0;
 var player;
 
@@ -61,7 +61,7 @@ var player;
 
 //=======================================//
 //  CONTROLS
-//=======================================//  
+//=======================================//
 var left=false;
 var right=false;
 var jump=false;
@@ -70,7 +70,7 @@ var jumping = false;
 
 //=======================================//
 //  UI
-//=======================================//  
+//=======================================//
 var life_text;
 var score_text;
 var drunk_text;
@@ -79,7 +79,7 @@ var drunk_text;
 
 //=======================================//
 //  CONSOLE OUTPUT
-//=======================================//  
+//=======================================//
 function log(msg, type) {
     // Define different types of styles
     let baseStyles = [
@@ -115,19 +115,23 @@ function preload() {
     //spritesheet for animations
     //game.load.spritesheet('player-sprite', 'assets/misc/player-spritespritesheet-small.png',50,50); // key, sourcefile, framesize x, framesize y
 
-    
+
     game.load.spritesheet(
-        'player-sprite', 
+        'player-sprite',
         player_spritesheet,
         player_size.width,
         player_size.height
     );
 
 
-    
+
 
     if (backgrounds.layer_1.active) {
         game.load.image('background_layer_1', backgrounds.layer_1.image);
+    };
+
+    if (background_end.layer_1.active) {
+        game.load.image('background_end_layer_1', background_end.layer_1.image);
     };
 
 
@@ -148,7 +152,7 @@ function preload() {
 
     //=======================================//
     //  PRELOAD GAMEOBJECTS
-    //=======================================// 
+    //=======================================//
     preloadAllGameObjects();
 
 
@@ -173,7 +177,7 @@ function GetGameObject($name) {
             $object = value;
         };
 
-    });  
+    });
 
     if ($object == null) {
         log("!! ERROR !! => GameObject Does Not Exist! [" + $name + "]", "error");
@@ -208,7 +212,7 @@ function preloadAllGameObjects() {
 
 function preloadGameObject($gameobject) {
     console.log("Preload GameObject => " + $gameobject.name);
-    
+
     //  Preload Image
     game.load.image($gameobject.name, $gameobject.image);
     //game.add.audio($gameobject.name + ' - Impact Sound', $gameobject.impactSound);
@@ -216,7 +220,7 @@ function preloadGameObject($gameobject) {
     if ($gameobject.impactSound != null) {
         $gameobject.impactSound = new Audio($gameobject.impactSound);
     };
-    
+
 
 }
 
@@ -250,11 +254,11 @@ function createGameObject($level_gameobject, $game) {
     console.log("Creating GameObject => Creating Level GameObject - " + $level_gameobject.name);
 
     $gameobject = GetGameObject($level_gameobject.name);
-    
+
     //console.log("Found GameObject => " + $gameobject.name);
 
 
-    
+
     var new_gameobject;
 
     //  Creating a sprite in game
@@ -269,13 +273,13 @@ function createGameObject($level_gameobject, $game) {
     //  ADD PHYSICS
     $game.physics.p2.enable(new_gameobject);
     new_gameobject.body.fixedRotation = $gameobject.fixedRotation;
-    new_gameobject.body.mass = $gameobject.mass; 
+    new_gameobject.body.mass = $gameobject.mass;
     player.body.createBodyCallback(new_gameobject, gameobjectCollide, this);
     new_gameobject.body.static = $gameobject.static;
 
     //new_gameobject.impactSound = game.sound.add($gameobject.name + ' - Impact Sound');
 
-    
+
     //  Set Object Alive
     new_gameobject.alive = true;
 
@@ -290,7 +294,7 @@ function createGameObject($level_gameobject, $game) {
     $level_gameobject.gameobject = $gameobject;
 
 
-    
+
 }
 
 
@@ -299,7 +303,7 @@ function createGameObject($level_gameobject, $game) {
 //  GAMEOBJECT COLLISONS
 //=======================================//
 function gameobjectCollide(body1, body2) {
-    
+
     $gameobject = body2.gameobject;
     $phaser_object = body2.phaser_object;
 
@@ -310,25 +314,25 @@ function gameobjectCollide(body1, body2) {
     if ($gameobject.impactSound != null) {
         $gameobject.impactSound.play();
     };
-    
-    
+
+
 
     score += $gameobject.score;
 
     drunk_o_meter.value += $gameobject.alcohol;
-    
+
 
 
     //console.log("$gameobject:", $gameobject, " | $phaser_object", $phaser_object);
 
-    
+
     if ($gameobject.destroyOnImpact) {
         //  DESTROY $phaser_object
-        $phaser_object.destroy(true); 
+        $phaser_object.destroy(true);
         $phaser_object.alive = false;
     };
-    
-    
+
+
     //  UPDATE DRUNK-O-METER
     CheckDrunkOMeter();
 
@@ -362,7 +366,7 @@ function updateGameObject($level_gameobject, $game) {
 
 
     moveGameObject(
-        $level_gameobject.phaser_object.body, 
+        $level_gameobject.phaser_object.body,
         $level_gameobject.gameobject.movement.x,
         $level_gameobject.gameobject.movement.y
         );
@@ -375,11 +379,11 @@ function moveGameObject($body, $x, $y) {
     if ($x != 0) {
         $body.moveRight($x);
     };
-    
+
     if ($y != 0) {
         $body.moveUp($y);
     };
-    
+
 }
 
 
@@ -409,20 +413,20 @@ function create() {
 
     //=======================================//
     //  START GAME SYSTEM
-    //=======================================// 
+    //=======================================//
     //  record the start time
     this.start = this.getTime();
 
     if (!game.device.desktop) { //go fullscreen on mobile devices
-        game.input.onDown.add(gofull, this); 
+        game.input.onDown.add(gofull, this);
     };
 
     game.physics.startSystem(Phaser.Physics.P2JS);  //activate physics
-    
-    
+
+
     //=======================================//
     //  SETUP WORLD
-    //=======================================// 
+    //=======================================//
     game.physics.p2.gravity.y = gravity;  //realistic gravity
     game.world.setBounds(0, 0, world_bounds.width, world_bounds.height);//(x, y, width, height)
 
@@ -437,33 +441,44 @@ function create() {
 
     //=======================================//
     //  BACKGROUND
-    //=======================================// 
+    //=======================================//
 
 
     //  BACKGROUND LAYER 1
     if (backgrounds.layer_1.active) {
 
         background_1 = game.add.tileSprite(
-            backgrounds.layer_1.position.x, 
-            backgrounds.layer_1.position.y,  
-            backgrounds.layer_1.size.x, 
-            backgrounds.layer_1.size.y, 
+            backgrounds.layer_1.position.x,
+            backgrounds.layer_1.position.y,
+            backgrounds.layer_1.size.x,
+            backgrounds.layer_1.size.y,
             'background_layer_1'
             ); //add tiling sprite to cover the whole game world
 
     };
-    
+
+    if (background_end.layer_1.active) {
+
+        background_end = game.add.tileSprite(
+            background_end.layer_1.position.x,
+            background_end.layer_1.position.y,
+            background_end.layer_1.size.x,
+            background_end.layer_1.size.y,
+            'background_end_layer_1'
+            ); //add tiling sprite to cover the whole game world
+
+    };
 
 
 
     //=======================================//
     //  GROUND
-    //=======================================// 
+    //=======================================//
     ground_layer = game.add.tileSprite(
-        ground.position.x, 
-            ground.position.y,  
-            ground.size.x, 
-            ground.size.y, 
+        ground.position.x,
+            ground.position.y,
+            ground.size.x,
+            ground.size.y,
         'ground-image'
         );
 
@@ -472,20 +487,20 @@ function create() {
 
 
 
-    
+
 
 
 
     //=======================================//
     //  CREATE PLAYER
-    //=======================================// 
+    //=======================================//
     player = game.add.sprite(player_start_position.x, player_start_position.y, 'player-sprite'); //create and position player
 
     game.physics.p2.enable(player);
     player.body.fixedRotation=true; // do not rotate on collision
     player.body.mass = player_mass;
 
-    // add some animations 
+    // add some animations
     player.animations.add('idle', idle_animation.frames, idle_animation.fps, idle_animation.loop);  // (key, framesarray, fps,repeat)
     player.animations.add('walk', walk_animation.frames, walk_animation.fps, walk_animation.loop);  // (key, framesarray, fps,repeat)
     player.animations.add('jump', jump_animation.frames, jump_animation.fps, jump_animation.loop);
@@ -497,7 +512,7 @@ function create() {
 
     //=======================================//
     //  CREATE GAMEOBJECTS
-    //=======================================// 
+    //=======================================//
     createAllGameObjects(game);
 
 
@@ -505,16 +520,16 @@ function create() {
 
     //=======================================//
     //  FOREGROUND
-    //=======================================// 
+    //=======================================//
 
     //  BACKGROUND LAYER 1
     if (foreground.active) {
 
         foreground_layer = game.add.tileSprite(
-            foreground.position.x, 
-            foreground.position.y,  
-            foreground.size.x, 
-            foreground.size.y, 
+            foreground.position.x,
+            foreground.position.y,
+            foreground.size.x,
+            foreground.size.y,
             'foreground-image'
             ); //add tiling sprite to cover the whole game world
 
@@ -526,7 +541,7 @@ function create() {
 
     //=======================================//
     //  CAMERA
-    //=======================================// 
+    //=======================================//
     //  Notice that the sprite doesn't have any momentum at all,
     //  it's all just set by the camera follow type.
     //  0.1 is the amount of linear interpolation to use.
@@ -546,7 +561,7 @@ function create() {
 
     //=======================================//
     //  LEVEL EXIT
-    //=======================================// 
+    //=======================================//
     exit = game.add.sprite(level_exit.position.x, level_exit.position.y, 'exit');
 
     exit.scale.set(level_exit.scale, level_exit.scale);
@@ -574,7 +589,7 @@ function create() {
 
     //  Here we create a Body specific callback.
     //  Note that only impact events between the ship and the panda are used here, the sweet/candy object is ignored.
-    
+
 
 
 
@@ -586,7 +601,7 @@ function create() {
 
     //=======================================//
     //  CREATE UI
-    //=======================================// 
+    //=======================================//
     life_text = game.add.text(10, 30, "Life: ", font);
     life_text.fixedToCamera = true;
 
@@ -617,9 +632,9 @@ function updateUI() {
 function levelComplete() {
     end_state = "Game Complete";
     game_ended = true;
-    
+
     player.animations.play('idle');
-    
+
     end_count_down = end_level_time;
 }
 
@@ -632,9 +647,9 @@ function levelComplete() {
 function playerDead() {
     end_state = "Player Dead";
     game_ended = true;
-    
+
     player.animations.play('dead');
-    
+
     end_count_down = end_level_time;
 }
 
@@ -726,10 +741,10 @@ function update() {
         return;
     };
 
-    
+
     //  DRUNK O METER
     DrunkOMeterUpdate();
-    
+
     //  UI
     updateUI();
 
@@ -756,7 +771,7 @@ function update() {
         if (!jumping) {
             player.animations.play('walk');
         };
-    } 
+    }
     else {
         if (!jumping) {
             player.animations.play('idle');
@@ -765,7 +780,7 @@ function update() {
 
 
     if (jump && !jumping){
-        playerJump(); 
+        playerJump();
         player.animations.play('jump');
     };
 
@@ -775,22 +790,22 @@ function update() {
             jumping = false;
         };
     };
-    
-    
-    
 
 
 
-    
-    if (game.input.currentPointers == 0 && !game.input.activePointer.isMouse){ 
-        right=false; 
-        left=false; 
+
+
+
+
+    if (game.input.currentPointers == 0 && !game.input.activePointer.isMouse){
+        right=false;
+        left=false;
         jump=false;
     }; //this works around a "bug" where a button gets stuck in pressed state
 
 
     updateAllGameObjects(game);
-    
+
 };
 
 
@@ -799,9 +814,9 @@ function update() {
 //=======================================//
 function render(){
     game.debug.text(
-        'jump:' + jump + 
-        ' left:' + left + 
-        ' right:' + right + 
+        'jump:' + jump +
+        ' left:' + left +
+        ' right:' + right +
         ' deltatime:' + deltaTime,
 
         10, 10);
@@ -811,8 +826,8 @@ function render(){
 
 //=======================================//
 //  FULL SCREEN
-//=======================================// 
-function gofull() { 
+//=======================================//
+function gofull() {
     game.scale.startFullScreen(false);
 }
 

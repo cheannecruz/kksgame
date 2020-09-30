@@ -28,6 +28,94 @@ var gameobjects = [
 
     },
 
+    {
+        name : "Cart 1",
+        image : 'assets/market-cart-1.png',
+        alpha : 1,
+        scale: 0.7,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+
+    {
+        name : "Cart 2",
+        image : 'assets/market-cart-2.png',
+        alpha : 1,
+        scale: 0.7,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+
+    {
+        name : "Boxes",
+        image : 'assets/market-box.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+
+    {
+        name : "Basket",
+        image : 'assets/market-basket.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+
 
     //  Create GameObject
     {
@@ -46,7 +134,7 @@ var gameobjects = [
 
         static : false,    // lock movement off
         movement : {
-            x : 20,
+            x : -50,
             y : 0
         },
 
@@ -98,9 +186,6 @@ var gameobjects = [
         },
     },
 ];
-
-
-
 
 
 //=======================================//
