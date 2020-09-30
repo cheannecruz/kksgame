@@ -7,7 +7,7 @@ console.log("Loading => level_1.js");
 //=======================================//
 var world_bounds = {
     height : 600,
-    width : 4703
+    width : 8000
 };
 
 var gravity = 1200;
@@ -17,7 +17,7 @@ var gravity = 1200;
 //=======================================//
 //  GAMEOBJECT PLACEMENTS
 //=======================================//
-var level_gameobjects = [   //  GameObject Placement Array 
+var level_gameobjects = [   //  GameObject Placement Array
     {
         name : "Plaftorm",
         position : {
@@ -38,7 +38,7 @@ var level_gameobjects = [   //  GameObject Placement Array
             x: 150,
             y: 150
         }
-    }, 
+    },
     {
         name : "Drink 1",
         position : {
@@ -92,15 +92,15 @@ var level_gameobjects = [   //  GameObject Placement Array
 
 var ground = {
         active : true,
-        image : 'ed-assets/clear-ground-tile.png',
+        image : 'assets/clear-ground-tile.png',
         alpha : 1,
         scale: 1,
         position : {
             x: 0,
-            y: world_bounds.height-85, 
+            y: world_bounds.height-85,
         },
         size : {
-            x: world_bounds.width*2, 
+            x: world_bounds.width*2,
             y: 30,
         }
 };
@@ -116,7 +116,7 @@ var ground = {
 var backgrounds = {
     layer_1 : {
         active : true,
-        image : 'ed-assets/background-level-1.png',
+        image : 'assets/background-level-1.png',
         alpha : 1,
         scale: 1,
         position : {
@@ -124,7 +124,7 @@ var backgrounds = {
             y: 0
         },
         size : {
-            x: 4703,
+            x: 8000,
             y: 600
         }
     },
@@ -137,7 +137,7 @@ var backgrounds = {
 
 var foreground = {
     active : true,
-    image : 'ed-assets/foreground-level-1.png',
+    image : 'assets/foreground-level-1.png',
     alpha : 1,
     scale: 1,
     position : {
@@ -145,7 +145,7 @@ var foreground = {
         y: 0
     },
     size : {
-        x: 4703,
+        x: 8000,
         y: 600
     }
 };
@@ -178,7 +178,7 @@ var level_exit = {
     scale: 3,
     mass: 100,
     position : {
-        x: 4450,
+        x: 7450,
         y: world_bounds.height-200
     }
 };

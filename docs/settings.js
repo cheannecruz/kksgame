@@ -21,7 +21,7 @@ var player_mass = 4;
 
 
 //  Player Animations
-var player_spritesheet = 'ed-assets/karen-spritesheet.png';
+var player_spritesheet = 'assets/karen-spritesheet.png';
 
 var idle_animation = {
     frames  : [0],
@@ -64,7 +64,7 @@ var drunk_o_meter = {
     value : 50,
     min : 0,
     max : 100,
-    sober_speed : 2,    
+    sober_speed : 2,
 };
 
 

@@ -62,7 +62,7 @@
     width: 30%;
     background-image: url(../assets/lost-karen.png);
     background-size: 400%;
-    animation: drunk 2s steps(4) infinite;
+    animation: drunk 1s steps(4) infinite;
 }
 
 .lost-karen img {
@@ -77,7 +77,7 @@
     width: 15%;
     background-image: url(../assets/bubbles.png);
     background-size: 400%;
-    animation: bubbles 2s steps(4) infinite;
+    animation: bubbles 1s steps(4) infinite;
 }
 
 .lost-bubbles img {

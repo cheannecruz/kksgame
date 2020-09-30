@@ -6,9 +6,9 @@ console.log("Loading => gameobjects.js");
 var gameobjects = [
 
     //  Create GameObject
-    { 
+    {
         name : "Plaftorm",
-        image : 'ed-assets/platform.png',
+        image : 'assets/platform.png',
         alpha : 1,
         scale: 2,
         mass: 1,
@@ -18,7 +18,7 @@ var gameobjects = [
         score : 0,
         alcohol : 0,
         destroyOnImpact : false,
-        impactSound : null,  
+        impactSound : null,
 
         static : true,    // lock movement off
         movement : {
@@ -30,9 +30,9 @@ var gameobjects = [
 
 
     //  Create GameObject
-    { 
+    {
         name : "Drink 1",
-        image : 'ed-assets/drink.png',
+        image : 'assets/drink.png',
         alpha : 1,
         scale: 1,
         mass: 1,
@@ -42,7 +42,7 @@ var gameobjects = [
         score : -10,
         alcohol : 10,
         destroyOnImpact : true,
-        impactSound : 'ed-assets/hit.mp3',  // Use null if no sound
+        impactSound : 'assets/hit.mp3',  // Use null if no sound
 
         static : false,    // lock movement off
         movement : {
@@ -53,9 +53,9 @@ var gameobjects = [
     },
 
     //  Create GameObject
-    { 
+    {
         name : "Bottle Water",
-        image : 'ed-assets/bottle-water.png',
+        image : 'assets/bottle-water.png',
         alpha : 1,
         scale: 0.5,
         mass: 1,
@@ -65,8 +65,8 @@ var gameobjects = [
         score : 10,
         alcohol : -10,
         destroyOnImpact : true,
-        impactSound : 'ed-assets/hit.mp3',
-        
+        impactSound : 'assets/hit.mp3',
+
         static : false,
         movement : {
             x : 10,
@@ -77,9 +77,9 @@ var gameobjects = [
 
 
     //  Create GameObject
-    { 
+    {
         name : "Big Virus",
-        image : 'ed-assets/big-virus.png',
+        image : 'assets/big-virus.png',
         alpha : 1,
         scale: 1,
         mass: 100,
@@ -89,8 +89,8 @@ var gameobjects = [
         score : 0,
         alcohol : 0,
         destroyOnImpact : false,
-        impactSound : 'ed-assets/hurt.mp3',
-        
+        impactSound : 'assets/hurt.mp3',
+
         static : false,
         movement : {
             x : 100,
