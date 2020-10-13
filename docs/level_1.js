@@ -16,6 +16,7 @@ var gravity = 1200;
 //  GAMEOBJECT PLACEMENTS
 //=======================================//
 var level_gameobjects = [ //  GameObject Placement Array
+    
     {
         name: "Cart 1",
         position: {
@@ -23,6 +24,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
+    
     {
         name: "Cart 1",
         position: {
@@ -30,6 +32,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
+    
     {
         name: "Cart 2",
         position: {
@@ -192,6 +195,7 @@ var background_end = {
 //  FOREGROUND
 //=======================================//
 
+
 var foreground = {
     active: true,
     image: 'assets/foreground-level-1.png',
@@ -206,6 +210,7 @@ var foreground = {
         y: 600
     }
 };
+
 
 //=======================================//
 //  PLAYER START POSITION

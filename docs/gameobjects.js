@@ -49,6 +49,7 @@ var gameobjects = [
         },
 
     },
+    
 
     {
         name : "Cart 2",
@@ -184,6 +185,115 @@ var gameobjects = [
             x : 100,
             y : 0
         },
+    },
+     //  Create GameObject
+     {
+        name : "Plaftorm",
+        image : 'assets/platform.png',
+        alpha : 1,
+        scale: 2,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+    //  Create GameObject for level 2
+    {
+        name : "Rock 1",
+        image : 'assets/beach-asset-1.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+
+    {
+        name : "Castle",
+        image : 'assets/beach-asset-2.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+
+    {
+        name : "Treasure",
+        image : 'assets/beach-asset-3.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
+    },
+    {
+        name : "Rock 2",
+        image : 'assets/beach-asset-4.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+
     },
 ];
 
