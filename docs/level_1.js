@@ -255,6 +255,7 @@ var player_start_position = {
 //  LEVEL EXIT
 //=======================================//
 var level_exit_background = {
+    active: true,
     image: 'assets/door.png',
     alpha: 0,
     scale: 3,
@@ -266,6 +267,7 @@ var level_exit_background = {
 };
 
 var level_exit = {
+    active: true,
     image: 'assets/door.png',
     alpha: 0,
     scale: 3,
