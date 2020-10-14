@@ -2,7 +2,7 @@
 console.log("Loading => settings.js");
 //=======================================//
 
-
+var debug_active = false;   //  Show Input Debug
 
 //=======================================//
 //  PLAYER
@@ -61,31 +61,136 @@ var dead_animation = {
 //  DRUNK-O-METER
 //=======================================//
 var drunk_o_meter = {
-    value : 50,
+    active : true,              // false = disabled
+    value : 0,                 //  Starting Value
     min : 0,
     max : 100,
-    sober_speed : 2,
+    sober_speed : 10,
+    overlay_image: 'assets/drunk-overlay.png'          //  null if no overlay wanted | 'ed-assets/drunk-overlay.png'
 };
-
-
-
 
 //=======================================//
 //  CAMERA
 //=======================================//
 var camera_speed = 0.1;  //  The smaller the value, the smooth the camera (and the longer it takes to catch up)
 
+//=======================================//
+//  UI ICONS
+//=======================================//
+
+
+//  Drunk-o-meter Bar
+var drunk_o_meter_icon = {
+    active : true,              // false = disabled
+    position : {                //  Starting Placement Position
+        x: 30,
+        y: 60
+    },
+    scale: 0.7,
+    spacing: 10,                //  Distance between each drunk meter point
+    image: 'assets/star.png',
+
+    background : {
+        active : false,              // false = disabled
+        image: 'ed-assets/platform.png',
+        position : {
+            x: 10,
+            y: 50
+        },
+        scale: 2,
+    }
+};
+
+
+
+var life_point_icon = {
+    active : true,              // false = disabled
+    position : {                //  Starting Placement Position
+        x: 10,
+        y: 10
+    },
+    scale: 1,
+    spacing: 20,                //  Distance between each life point
+    image: 'assets/heart.png'
+};
+
+
+
+
+
 
 //=======================================//
-//  UI
+//  UI FONT
 //=======================================//
+var googleFonts = ['Revalia', 'Hind', 'Sansita Swashed'];  //    Add GoogleFont Name here  -   https://fonts.google.com/
+
 var font = {
-    font: "15px Arial",
+    font: "15px Sansita Swashed",       //    Add GoogleFont Name Here
     fill: "#ff0044",
     align: "left"
 };
 
 
+
+var life_text_ui = {
+    active: true,
+    text_preceding: "Life: ",      //      eg. "Score: "
+    font: {
+        font: "25px Hind",       //    Add GoogleFont Name Here
+        fill: "#ac3973",            //  Hex Colour
+        align: "right"
+    },
+    position : {
+        x: 700,
+        y: 120
+    }
+};
+
+
+var score_text_ui = {
+    active: true,
+    text_preceding: "",      //      eg. "Score: "
+    font: {
+        font: "25px Hind",       //    Add GoogleFont Name Here
+        fill: "#cc0099",
+        align: "center"
+    },
+    position : {
+        x: 400,
+        y: 10
+    }
+};
+
+
+
+var drunk_text_ui = {
+    active: true,
+    text_preceding: "Drunk: ",      //      eg. "Score: "
+    font: {
+        font: "20px Revalia",       //    Add GoogleFont Name Here
+        fill: "#ff0044",
+        align: "left"
+    },
+    position : {
+        x: 20,
+        y: 90
+    }
+};
+
+
+var timer_text_ui = {
+    active: true,
+    text_preceding: "Time: ",      //      eg. "Score: "
+    font: {
+        font: "20px Revalia",       //    Add GoogleFont Name Here
+        fill: "#ff0044",
+        align: "left"
+    },
+    position : {
+        x: 20,
+        y: 200
+    }
+};
 
 //=======================================//
 console.log("Loaded => settings.js");

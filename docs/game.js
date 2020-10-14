@@ -2,9 +2,14 @@
 console.log("Loading => game.js");
 //=======================================//
 
+var screen_size = {
+    x: 800,
+    y: 600
+}
+
 var game = new Phaser.Game(
-    800,
-    600,
+    screen_size.x,
+    screen_size.y,
     Phaser.AUTO,
     'phaser-example',
     {
@@ -32,8 +37,6 @@ var game = new Phaser.Game(
 
 
 
-
-
 //=======================================//
 //  SYSTEM
 //=======================================//
@@ -43,7 +46,7 @@ var end_state = "";
 var game_ended = false;
 var end_count_down = 0;
 var end_level_time = 3;
-
+var game_time = 0;
 
 //=======================================//
 //  WORLD
@@ -56,8 +59,8 @@ var exit;
 //=======================================//
 var score = 0;
 var player;
-
-
+var max_life_points = life_points;
+var drunk_points = 0;
 
 //=======================================//
 //  CONTROLS
@@ -111,9 +114,32 @@ function log(msg, type) {
 };
 
 
+
+//  The Google WebFont Loader will look for this object, so create it before loading the script.
+WebFontConfig = {
+
+    //  'active' means all requested fonts have finished loading
+    //  We set a 1 second delay before calling 'createText'.
+    //  For some reason if we don't the browser cannot render the text the first time it's created.
+    //active: function() { game.time.events.add(Phaser.Timer.SECOND, createText, this); },
+
+    //  The Google Fonts we want to load (specify as many as you like in the array)
+    google: {
+      families: googleFonts
+    }
+
+};
+
+
+
+
 function preload() {
     //spritesheet for animations
     //game.load.spritesheet('player-sprite', 'assets/misc/player-spritespritesheet-small.png',50,50); // key, sourcefile, framesize x, framesize y
+
+
+    //  Load the Google WebFont Loader script
+    game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
 
     game.load.spritesheet(
@@ -128,10 +154,6 @@ function preload() {
 
     if (backgrounds.layer_1.active) {
         game.load.image('background_layer_1', backgrounds.layer_1.image);
-    };
-
-    if (background_end.layer_1.active) {
-        game.load.image('background_end_layer_1', background_end.layer_1.image);
     };
 
 
@@ -149,6 +171,22 @@ function preload() {
     game.load.image('exit', level_exit.image);
 
 
+    if (drunk_o_meter.active) {
+        game.load.image('drunk-overlay', drunk_o_meter.overlay_image);
+    };
+
+
+    if (life_point_icon.active) {
+        game.load.image('life-point', life_point_icon.image);
+    };
+
+    if (drunk_o_meter_icon.active) {
+        game.load.image('drunk-point', drunk_o_meter_icon.image);
+        if (drunk_o_meter_icon.background.active) {
+            game.load.image('drunk-ui-background', drunk_o_meter_icon.background.image);
+
+        };
+    };
 
     //=======================================//
     //  PRELOAD GAMEOBJECTS
@@ -249,6 +287,26 @@ function createAllGameObjects($game) {
 }
 
 
+//  TIME RELEASED GAME OBJECTS
+function timeReleaseGameObjects($game) {
+
+    $.each( timerelease_gameobjects, function( key, value ) {
+        if (!value.released) {
+            if (game_time >= value.time) {
+                console.log("GameObjects => Releasing GameObject = " + value.name);
+                createGameObject(value, $game);
+                if (value.repeat > 0) {
+                    value.time = (game_time + value.repeat);
+                } else {
+                    value.released = true;
+                };
+            };
+        };
+    });
+
+    //console.log("GameObjects => Completed Creating GameObjects");
+}
+
 
 function createGameObject($level_gameobject, $game) {
     console.log("Creating GameObject => Creating Level GameObject - " + $level_gameobject.name);
@@ -296,6 +354,8 @@ function createGameObject($level_gameobject, $game) {
 
 
 }
+
+
 
 
 
@@ -457,17 +517,6 @@ function create() {
 
     };
 
-    if (background_end.layer_1.active) {
-
-        background_end = game.add.tileSprite(
-            background_end.layer_1.position.x,
-            background_end.layer_1.position.y,
-            background_end.layer_1.size.x,
-            background_end.layer_1.size.y,
-            'background_end_layer_1'
-            ); //add tiling sprite to cover the whole game world
-
-    };
 
 
 
@@ -562,17 +611,20 @@ function create() {
     //=======================================//
     //  LEVEL EXIT
     //=======================================//
-    exit = game.add.sprite(level_exit.position.x, level_exit.position.y, 'exit');
+    if (level_exit.active) {
+        exit = game.add.sprite(level_exit.position.x, level_exit.position.y, 'exit');
 
-    exit.scale.set(level_exit.scale, level_exit.scale);
+        exit.scale.set(level_exit.scale, level_exit.scale);
 
-    game.physics.p2.enable(exit);
-    exit.body.fixedRotation=true; // do not rotate on collision
-    exit.body.mass = level_exit.mass;
-    exit.alpha = level_exit.alpha;
+        game.physics.p2.enable(exit);
+        exit.body.fixedRotation=true; // do not rotate on collision
+        exit.body.mass = level_exit.mass;
+        exit.alpha = level_exit.alpha;
 
-    //  PHYSICS IMPACT
-    player.body.createBodyCallback(exit, levelComplete, this);
+        //  PHYSICS IMPACT
+        player.body.createBodyCallback(exit, levelComplete, this);
+    };
+
 
 
 
@@ -600,25 +652,180 @@ function create() {
 
 
     //=======================================//
+    //  DRUNK-O-METER OVERLAY
+    //=======================================//
+
+
+    //  BACKGROUND LAYER 1
+    if (drunk_o_meter.active && drunk_o_meter.overlay_image != null) {
+
+        drunk_o_meter_overlay = game.add.tileSprite(
+            0,
+            0,
+            screen_size.x,
+            screen_size.y,
+            'drunk-overlay'
+            ); //add tiling sprite to cover the whole game world
+        drunk_o_meter_overlay.fixedToCamera = true;
+        drunk_o_meter_overlay.alpha = Math.round(drunk_o_meter.value);
+    };
+
+
+    //=======================================//
     //  CREATE UI
     //=======================================//
-    life_text = game.add.text(10, 30, "Life: ", font);
-    life_text.fixedToCamera = true;
 
-    score_text = game.add.text(10, 60, "Score: ", font);
-    score_text.fixedToCamera = true;
+    life_point_icons = [];
 
-    drunk_text = game.add.text(10, 90, "Drunk: ", font);
-    drunk_text.fixedToCamera = true;
+    var left_alignment = 0;
+
+    //  CREATE LIFE POINT ICON UI
+    if(life_point_icon.active) {
+        left_alignment = life_point_icon.position.x;
+        for(i = 0; i < life_points; i++) {
+            life_point_icons[i] = game.add.sprite(
+                left_alignment,
+                life_point_icon.position.y,
+                'life-point'
+                ); //add tiling sprite to cover the whole game world
+            life_point_icons[i].fixedToCamera = true;
+
+            life_point_icons[i].scale.x = life_point_icon.scale;
+            life_point_icons[i].scale.y = life_point_icon.scale;
+
+            left_alignment += life_point_icon.spacing;
+        };
+    };
+
+
+
+    drunk_o_meter_icons = [];
+    left_alignment = 0;
+    drunk_points = Math.round(drunk_o_meter.value/100);
+
+    //  CREATE DRUNK POINT ICON UI
+
+    if(drunk_o_meter_icon.active) {
+
+        if (drunk_o_meter_icon.background.active) {
+
+            drunk_o_meter_background = game.add.sprite(
+                drunk_o_meter_icon.background.position.x,
+                drunk_o_meter_icon.background.position.y,
+                'drunk-ui-background'
+                );
+
+            drunk_o_meter_background.scale.x = drunk_o_meter_icon.background.scale;
+            drunk_o_meter_background.scale.y = drunk_o_meter_icon.background.scale;
+
+            drunk_o_meter_background.fixedToCamera = true;
+
+        };
+
+
+        left_alignment = drunk_o_meter_icon.position.x;
+        for(i = 0; i < 10; i++) {
+            drunk_o_meter_icons[i] = game.add.sprite(
+                left_alignment,
+                drunk_o_meter_icon.position.y,
+                'drunk-point'
+                ); //add tiling sprite to cover the whole game world
+            drunk_o_meter_icons[i].fixedToCamera = true;
+
+            drunk_o_meter_icons[i].scale.x = drunk_o_meter_icon.scale;
+            drunk_o_meter_icons[i].scale.y = drunk_o_meter_icon.scale;
+
+            left_alignment += drunk_o_meter_icon.spacing;
+        };
+
+    };
+
+    /* if (drunk_o_meter_icon.active) {
+        drunk_o_meter_icons.forEach(function(item, index) {
+            item.alpha = 0;
+        });
+
+        for(i = 0; i < drunk_points; i++) {
+            drunk_o_meter_icons[i].alpha = 1;
+        };
+    };
+ */
+
+
+
+
+    if(life_text_ui.active) {
+        life_text = game.add.text(
+            life_text_ui.position.x,
+            life_text_ui.position.y,
+            life_text_ui.text_preceding,
+            life_text_ui.font
+            );
+        life_text.fixedToCamera = true;
+    };
+
+
+    if(score_text_ui.active) {
+        score_text = game.add.text(
+            score_text_ui.position.x,
+            score_text_ui.position.y,
+            score_text_ui.text_preceding,
+            score_text_ui.font
+            );
+        score_text.fixedToCamera = true;
+    };
+
+
+
+
+    if(drunk_text_ui.active) {
+        drunk_text = game.add.text(
+            drunk_text_ui.position.x,
+            drunk_text_ui.position.y,
+            drunk_text_ui.text_preceding,
+            drunk_text_ui.font
+            );
+            drunk_text.fixedToCamera = true;
+    };
+
+
+
+    if(timer_text_ui.active) {
+        timer_text = game.add.text(
+            timer_text_ui.position.x,
+            timer_text_ui.position.y,
+            timer_text_ui.text_preceding,
+            timer_text_ui.font
+            );
+            timer_text.fixedToCamera = true;
+    };
+
+
+
 
 };
 
 
 
 function updateUI() {
-    life_text.setText("Life: " + life_points);
-    score_text.setText("Score: " + score);
-    drunk_text.setText("Drunk: " + Math.round(drunk_o_meter.value));
+
+    if(life_text_ui.active) {
+        life_text.setText(life_text_ui.text_preceding + life_points);
+    };
+
+    if(score_text_ui.active) {
+        score_text.setText(score_text_ui.text_preceding + score);
+    };
+
+    if(drunk_text_ui.active) {
+        drunk_text.setText(drunk_text_ui.text_preceding + Math.round(drunk_o_meter.value));
+    };
+
+    if(timer_text_ui.active) {
+        timer_text.setText(timer_text_ui.text_preceding + Math.round(level_timer.value));
+    };
+
+
 }
 
 
@@ -684,6 +891,25 @@ function PlayerHit($damage) {
 
     life_points -= $damage;
 
+    if (life_points > max_life_points) {
+        life_points = max_life_points;
+    };
+
+
+    if (life_point_icon.active) {
+        life_point_icons.forEach(function(item, index) {
+            item.alpha = 0;
+        });
+
+        for(i = 0; i < life_points; i++) {
+            life_point_icons[i].alpha = 1;
+        };
+    };
+
+
+
+
+
     if ($damage < 0) {
         return;
     };
@@ -696,10 +922,16 @@ function PlayerHit($damage) {
 }
 
 
+
+
+
 //=======================================//
 //  DRUNK-O-METER
 //=======================================//
 function DrunkOMeterUpdate () {
+    if (!drunk_o_meter.active) {
+        return;
+    };
     drunk_o_meter.value -= drunk_o_meter.sober_speed * deltaTime;
 
     CheckDrunkOMeter();
@@ -712,11 +944,52 @@ function CheckDrunkOMeter() {
     } else if (drunk_o_meter.value > 100)  {
         drunk_o_meter.value = 100;
     };
+
+    if (drunk_o_meter.overlay_image != null) {
+        drunk_o_meter_overlay.alpha = (drunk_o_meter.value/100);
+    };
+
+
+    drunk_points = Math.round(drunk_o_meter.value/10);
+
+
+    if (drunk_o_meter_icon.active) {
+        drunk_o_meter_icons.forEach(function(item, index) {
+            item.alpha = 0;
+        });
+
+        for(i = 0; i < drunk_points; i++) {
+            drunk_o_meter_icons[i].alpha = 1;
+        };
+    };
+
 }
 
 
+//=======================================//
+//  LEVEL TIMER
+//=======================================//
+function LevelTimerUpdate () {
+
+    if (!level_timer.active) {
+        return;
+    };
+
+    level_timer.value -= deltaTime;
 
 
+    if (level_timer.value <= 0) {
+        game_ended = true;
+        level_timer.active = false;
+
+        if (level_timer.pass_level) {
+            levelComplete();
+        } else {
+            playerDead();
+        };
+    };
+
+}
 
 
 
@@ -728,6 +1001,10 @@ function CheckDrunkOMeter() {
 function update() {
 
     deltaTime = this.getDeltaTime();
+    game_time += deltaTime;
+
+
+    LevelTimerUpdate ();
 
 
 
@@ -741,6 +1018,9 @@ function update() {
         return;
     };
 
+
+    //  TIME RELEASE GAMEOBJECTS
+    timeReleaseGameObjects(this);
 
     //  DRUNK O METER
     DrunkOMeterUpdate();
@@ -813,13 +1093,16 @@ function update() {
 //  RENDER
 //=======================================//
 function render(){
-    game.debug.text(
-        'jump:' + jump +
-        ' left:' + left +
-        ' right:' + right +
-        ' deltatime:' + deltaTime,
+    if (debug_active) {
+        game.debug.text(
+            'jump:' + jump +
+            ' left:' + left +
+            ' right:' + right +
+            ' deltatime:' + deltaTime,
 
-        10, 10);
+            10, 10);
+    }
+
 }
 
 

@@ -3,6 +3,16 @@ console.log("Loading => level_1.js");
 //=======================================//
 
 //=======================================//
+//  LEVEL TIMER
+//=======================================//
+
+var level_timer = {
+    active : false,
+    pass_level : false,     //  If the player wins whent he time runs out then set this to TRUE
+    value : 25              //  Number of seconds in the timer count down
+};
+
+//=======================================//
 //  WORLD
 //=======================================//
 var world_bounds = {
@@ -16,7 +26,7 @@ var gravity = 1200;
 //  GAMEOBJECT PLACEMENTS
 //=======================================//
 var level_gameobjects = [ //  GameObject Placement Array
-    
+
     {
         name: "Cart 1",
         position: {
@@ -24,7 +34,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
-    
+
     {
         name: "Cart 1",
         position: {
@@ -32,7 +42,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
-    
+
     {
         name: "Cart 2",
         position: {
@@ -132,6 +142,27 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 150
         }
     }
+];
+
+//=======================================//
+//  TIME RELEASE OBJECTS
+//=======================================//
+var timerelease_gameobjects = [   //  GameObject Placement Array
+    /*
+     *  Example Time Released Object Placement
+    {
+        name : "Bottle Water",
+        time : 1,       //  When To First release object
+        repeat: 4,      //  How long to wait to repeat the release | set to 0 to not repeat release
+        position : {
+            x: 750,
+            y: 0
+        },
+        released : false
+    },
+    */
+
+
 ];
 
 //=======================================//
