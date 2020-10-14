@@ -28,9 +28,9 @@ canvas {
 }
 
 .background-rays img{
-    width: 150%;
-    margin-top: -25%;
-    margin-left: -25%;
+    width: 140%;
+    margin-top: -20%;
+    margin-left: -20%;
     -webkit-animation:spin 50s linear infinite;
     -moz-animation:spin 50s linear infinite;
     animation:spin 50s linear infinite;
@@ -38,11 +38,30 @@ canvas {
 
 .background-platform {
     width: 100%;
+    height: 100vh;
     position: relative;
     z-index: 15;
     top: 0;
     left: 0;
     display: block;
+    background-image: url(../assets/platform-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 50%;
+}
+
+.background-characters {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    display: block;
+    background-image: url(../assets/character-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 .background-characters {
@@ -50,7 +69,7 @@ canvas {
     position: absolute;
     z-index: 15;
     left: 0;
-    top: -5%;
+    bottom: 0%;
 }
 
 #start-button {

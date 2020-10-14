@@ -25,16 +25,9 @@
     display: block;
 }
 
-.lost-button{
-    top: 10%;
-    right: 10%;
-    bottom: auto;
-    left: auto;
-}
-
 .lost-button {
     position: absolute;
-    top: 5%;
+    bottom: 3%;
     right: 5%;
     max-width: 300px;
     z-index: 20;

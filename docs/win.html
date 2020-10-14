@@ -3,16 +3,25 @@
     <head>
         <meta charset="UTF-8" />
         <title>Game Start</title>
-        <script src="js/phaser.min.js"></script>
+        <script src="js/jquery.min.js"></script>
         <link rel="stylesheet" href="style/main.css"/>
+        <link rel="stylesheet" href="style/win.css" />
     </head>
 
     <body>
-        <div id="game-ui">
-            <a id="home-button" href="index.html">
-                Home
-            </a>
+        <div id="game-ui" class="win-container">
+            <img class="win-bg" src="assets/main-bg.png"/>
+            <div class="win-content">
+                <div class="win-content-holder">
+                    <img class="background-lost" src="assets/win-bg.png"/>
+                    <div class="win-confetti">
+                        <img class="background-confetti" src="assets/confetti-bg.png"/>
+                    </div>
+                    <a class="win-button" href="game.html">
+                        <img class="idle" src="assets/next-level-button.png" alt="START">
+                    </a>
+                </div>
+            </div>
         </div>
     </body>
-
 </html>

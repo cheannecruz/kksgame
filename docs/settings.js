@@ -179,7 +179,7 @@ var drunk_text_ui = {
 
 
 var timer_text_ui = {
-    active: true,
+    active: false,
     text_preceding: "Time: ",      //      eg. "Score: "
     font: {
         font: "20px Revalia",       //    Add GoogleFont Name Here
