@@ -12,7 +12,7 @@ var jumpVelocity = 600;
 var life_points = 3;
 
 var player_size = {
-    height : 151,
+    height : 160,
     width : 100
 };
 
@@ -21,7 +21,7 @@ var player_mass = 4;
 
 
 //  Player Animations
-var player_spritesheet = 'assets/karen-spritesheet.png';
+var player_spritesheet = 'assets/karen-spritesheet-new.png';
 
 var idle_animation = {
     frames  : [0],
@@ -36,20 +36,20 @@ var walk_animation = {
 };
 
 var jump_animation = {
-    frames  : [4,5,6,7,8,9,10],
-    fps     : 7,
+    frames  : [4,5,6,7,8],
+    fps     : 5,
     loop    : false
 };
 
 
 var hurt_animation = {
-    frames  : [7],
+    frames  : [8],
     fps     : 1,
     loop    : false
 };
 
 var dead_animation = {
-    frames  : [8,9,10,11],
+    frames  : [6,7,8],
     fps     : 7,
     loop    : false
 };
