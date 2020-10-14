@@ -156,6 +156,9 @@ function preload() {
         game.load.image('background_layer_1', backgrounds.layer_1.image);
     };
 
+    if (background_end.layer_1.active) {
+        game.load.image('background_end_layer_1', background_end.layer_1.image);
+    };
 
     if (foreground.active) {
         game.load.image('foreground-image', foreground.image);
@@ -517,7 +520,17 @@ function create() {
 
     };
 
+    if (background_end.layer_1.active) {
 
+        background_end = game.add.tileSprite(
+        background_end.layer_1.position.x,
+        background_end.layer_1.position.y,
+        background_end.layer_1.size.x,
+        background_end.layer_1.size.y,
+        'background_end_layer_1'
+        ); //add tiling sprite to cover the whole game world
+
+    };
 
 
     //=======================================//
@@ -750,9 +763,6 @@ function create() {
         };
     };
  */
-
-
-
 
     if(life_text_ui.active) {
         life_text = game.add.text(
