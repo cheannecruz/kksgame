@@ -61,6 +61,7 @@ var score = 0;
 var player;
 var max_life_points = life_points;
 var drunk_points = 0;
+var jump_sound = null;
 
 //=======================================//
 //  CONTROLS
@@ -142,6 +143,9 @@ function preload() {
     game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
 
+    // game sound
+    game.load.audio('bg_music', 'assets/level-music.mp3');
+
     game.load.spritesheet(
         'player-sprite',
         player_spritesheet,
@@ -149,8 +153,7 @@ function preload() {
         player_size.height
     );
 
-
-
+    //game.load.audio('bass', 'assets/audio/tech/bass.mp3');
 
     if (backgrounds.layer_1.active) {
         game.load.image('background_layer_1', backgrounds.layer_1.image);
@@ -375,7 +378,9 @@ function gameobjectCollide(body1, body2) {
     };
 
     if ($gameobject.impactSound != null) {
-        $gameobject.impactSound.play();
+        if (game_ended == false) {
+            $gameobject.impactSound.play();
+        }
     };
 
 
@@ -470,10 +475,9 @@ function initiateGameObject($gameobject) {
 }
  */
 
-
+var bg_sound;
 
 function create() {
-
     //=======================================//
     //  START GAME SYSTEM
     //=======================================//
@@ -485,7 +489,6 @@ function create() {
     };
 
     game.physics.startSystem(Phaser.Physics.P2JS);  //activate physics
-
 
     //=======================================//
     //  SETUP WORLD
@@ -506,6 +509,8 @@ function create() {
     //  BACKGROUND
     //=======================================//
 
+    bg_sound = this.sound.add('bg_music',0.2,true);
+    bg_sound.play();
 
     //  BACKGROUND LAYER 1
     if (backgrounds.layer_1.active) {
@@ -809,10 +814,6 @@ function create() {
             );
             timer_text.fixedToCamera = true;
     };
-
-
-
-
 };
 
 
@@ -845,12 +846,22 @@ function updateUI() {
 //  LEVEL COMPLETE
 //=======================================//
 function levelComplete() {
-    end_state = "Game Complete";
-    game_ended = true;
+    if (game_ended == false) {
+        end_state = "Game Complete";
+        game_ended = true;
 
-    player.animations.play('idle');
 
-    end_count_down = end_level_time;
+        if (level_exit.impactSound != null) {
+            var end_sound = new Audio(level_exit.impactSound);
+            end_sound.volume = 0.2;
+            bg_sound.stop();
+            end_sound.play();
+        };
+
+        player.animations.play('idle');
+
+        end_count_down = end_level_time;
+    }
 }
 
 
@@ -860,12 +871,19 @@ function levelComplete() {
 //  PLAYER DEAD
 //=======================================//
 function playerDead() {
-    end_state = "Player Dead";
-    game_ended = true;
+    if (game_ended == false) {
+        end_state = "Player Dead";
+        game_ended = true;
 
-    player.animations.play('dead');
+        var lose_sound = new Audio('assets/loose.mp3');
+        lose_sound.volume = 0.2;
+        bg_sound.stop();
+        lose_sound.play();
 
-    end_count_down = end_level_time;
+        player.animations.play('dead');
+
+        end_count_down = end_level_time;
+    }
 }
 
 
@@ -1115,6 +1133,8 @@ function gofull() {
 //=======================================//
 function playerJump(){  //jump with small delay
     if (game.time.now > nextJump ){
+        jump_sound = new Audio('assets/jump.mp3');
+        jump_sound.play();
         player.body.moveUp(jumpVelocity);
         nextJump = game.time.now + jumpRate;
         jumping = true;

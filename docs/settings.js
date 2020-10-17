@@ -77,7 +77,7 @@ var drunk_o_meter = {
     value : 0,                 //  Starting Value
     min : 0,
     max : 100,
-    sober_speed : 10,
+    sober_speed : 1,
     overlay_image: 'assets/drunk-overlay.png'          //  null if no overlay wanted | 'ed-assets/drunk-overlay.png'
 };
 
@@ -145,7 +145,7 @@ var font = {
 
 
 var life_text_ui = {
-    active: true,
+    active: false,
     text_preceding: "Life: ",      //      eg. "Score: "
     font: {
         font: "25px Hind",       //    Add GoogleFont Name Here
@@ -176,7 +176,7 @@ var score_text_ui = {
 
 
 var drunk_text_ui = {
-    active: true,
+    active: false,
     text_preceding: "Drunk: ",      //      eg. "Score: "
     font: {
         font: "20px Revalia",       //    Add GoogleFont Name Here

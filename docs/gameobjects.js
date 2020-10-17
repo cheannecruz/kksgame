@@ -49,7 +49,7 @@ var gameobjects = [
         },
 
     },
-    
+
 
     {
         name : "Cart 2",
@@ -131,7 +131,7 @@ var gameobjects = [
         score : -10,
         alcohol : 10,
         destroyOnImpact : true,
-        impactSound : 'assets/hit.mp3',  // Use null if no sound
+        impactSound : 'assets/gibberish.mp3',  // Use null if no sound
 
         static : false,    // lock movement off
         movement : {
@@ -155,7 +155,7 @@ var gameobjects = [
         score : 10,
         alcohol : -10,
         destroyOnImpact : true,
-        impactSound : 'assets/hit.mp3',
+        impactSound : 'assets/water.mp3',
 
         static : false,
         movement : {
@@ -179,7 +179,7 @@ var gameobjects = [
         score : 0,
         alcohol : 0,
         destroyOnImpact : false,
-        impactSound : 'assets/hurt.mp3',
+        impactSound : 'assets/oh.mp3',
 
         static : false,
         movement : {

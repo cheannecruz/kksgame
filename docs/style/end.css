@@ -1,0 +1,68 @@
+.end-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 15;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.end-content-holder {
+    position: relative;
+}
+
+.background-end {
+    width: 100%;
+    display: block;
+}
+
+.end-bg {
+    visibility: hidden;
+    width: 100%;
+    display: block;
+}
+
+.again-button {
+    position: absolute;
+    bottom: 3%;
+    right: 5%;
+    max-width: 300px;
+    z-index: 20;
+}
+
+.again-button img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    transition: transform .2s;
+}
+
+.again-button:hover {
+    cursor: pointer;
+}
+
+.again-button:hover img {
+    transform: scale(1.1);
+}
+
+.end-speech-one {
+    position: absolute;
+    top: 5%;
+    left: 40%;
+    width: 28%;
+}
+
+.end-speech-two {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    width: 40%;
+}
+
+@keyframes confetti{
+    from{background-position-x: 0%;}
+    to{background-position-x: -500%;}
+}

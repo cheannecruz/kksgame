@@ -1,0 +1,49 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Game Start</title>
+        <script src="js/jquery.min.js"></script>
+        <link rel="stylesheet" href="style/main.css"/>
+        <link rel="stylesheet" href="style/end.css" />
+    </head>
+
+    <body>
+        <div id="game-ui" class="end-container">
+            <img class="end-bg" src="assets/main-bg.png"/>
+            <div class="end-content">
+                <div class="end-content-holder scene-one">
+                    <img class="end-speech-one" src="assets/speech-one.png"/>
+                    <img class="background-end one" src="assets/end-1.png"/>
+                </div>
+                <div class="end-content-holder scene-two">
+                    <img class="end-speech-two" src="assets/speech-two.png"/>
+                    <img class="background-end two" src="assets/end-2.png"/>
+                </div>
+                <a class="again-button" href="game.html">
+                    <img class="idle" src="assets/play-again-button.png" alt="START">
+                </a>
+            </div>
+        </div>
+    </body>
+    <script>
+        $("document").ready(function() {
+            $(".scene-one").hide();
+            $(".scene-two").hide();
+            $(".background-end.one").hide();
+            $(".background-end.two").hide();
+            $(".end-speech-one").hide();
+            $(".end-speech-two").hide();
+            $(".again-button").hide();
+
+            $(".scene-one").fadeIn();
+            $(".background-end.one").delay(1000).fadeIn();
+            $(".end-speech-one").delay(2000).fadeIn();
+            $(".scene-one").delay(10000).fadeOut();
+            $(".scene-two").delay(12000).fadeIn();
+            $(".background-end.two").delay(13000).fadeIn();
+            $(".end-speech-two").delay(14000).fadeIn();
+            $(".again-button").delay(14500).fadeIn();
+        });
+    </script>
+</html>

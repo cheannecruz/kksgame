@@ -254,24 +254,13 @@ var player_start_position = {
 //=======================================//
 //  LEVEL EXIT
 //=======================================//
-var level_exit_background = {
-    active: true,
-    image: 'assets/door.png',
-    alpha: 0,
-    scale: 3,
-    mass: 100,
-    position: {
-        x: 10600,
-        y: world_bounds.height - 200
-    }
-};
-
 var level_exit = {
     active: true,
     image: 'assets/door.png',
     alpha: 0,
     scale: 3,
     mass: 100,
+    impactSound : 'assets/win.mp3',
     position: {
         x: 10600,
         y: world_bounds.height - 200

@@ -14,7 +14,7 @@
     position: relative;
 }
 
-.background-lost {
+.background-win {
     width: 100%;
     display: block;
 }
@@ -56,11 +56,17 @@
     background-image: url(../assets/confetti-sprite.png);
     background-size: 500%;
     animation: confetti 1s steps(5) infinite;
+    background-repeat: repeat-x;
 }
 
 .win-confetti img {
     visibility: hidden;
     width: 100%;
+}
+
+#myVideo, .enable-play {
+    position: absolute;
+    z-index: 1000;
 }
 
 @keyframes confetti{
