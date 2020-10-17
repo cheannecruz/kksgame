@@ -1,5 +1,5 @@
 //=======================================//
-console.log("Loading => level_1.js");
+console.log("Loading => level_3.js");
 //=======================================//
 
 //=======================================//
@@ -9,7 +9,11 @@ var world_bounds = {
     height: 600,
     width: 10986
 };
-
+var level_timer = {
+    active : false,
+    pass_level : false,     //  If the player wins whent he time runs out then set this to TRUE
+    value : 25              //  Number of seconds in the timer count down
+};
 var gravity = 1200;
 
 //=======================================//
@@ -377,10 +381,42 @@ var level_exit = {
 };
 
 
+//=======================================//
+//  TIME RELEASE OBJECTS
+//=======================================//
+var timerelease_gameobjects = [   //  GameObject Placement Array
+    /*
+     *  Example Time Released Object Placement
+    {
+        name : "Bottle Water",
+        time : 1,       //  When To First release object
+        repeat: 4,      //  How long to wait to repeat the release | set to 0 to not repeat release
+        position : {
+            x: 750,
+            y: 0
+        },
+        released : false
+    },
+    */
 
+
+];
+
+//=======================================//
+//  END GAME ACTIONS
+//=======================================//
+function endGame($end_state) {
+    if ($end_state == "Game Complete") {
+        window.location.href = "win.html";
+    } else if ($end_state == "Player Lost") {
+        window.location.href = "lost.html";
+    } else if ($end_state == "Player Dead") {
+        window.location.href = "lost.html";
+    };
+}
 
 
 
 //=======================================//
-console.log("Loaded => level_1.js");
+console.log("Loaded => level_3.js");
 //=======================================//

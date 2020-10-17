@@ -18,10 +18,22 @@ var player_size = {
 
 var player_mass = 4;
 
+//=======================================//
+//  GREEN BEER
+//=======================================//
+
+
+
+var player_size_green_beer = {
+    height : 50,
+    width : 50
+};
+
 
 
 //  Player Animations
 var player_spritesheet = 'assets/karen-spritesheet-new.png';
+var drink_spritesheet = 'assests/drink_spritesheet.png';
 
 var idle_animation = {
     frames  : [0],

@@ -841,8 +841,6 @@ function updateUI() {
 
 
 
-
-
 //=======================================//
 //  LEVEL COMPLETE
 //=======================================//
@@ -871,21 +869,6 @@ function playerDead() {
 }
 
 
-
-
-
-//=======================================//
-//  END GAME ACTIONS
-//=======================================//
-function endGame($end_state) {
-    if ($end_state == "Game Complete") {
-        window.location.href = "win.html";
-    } else if ($end_state == "Player Lost") {
-        window.location.href = "lost.html";
-    } else if ($end_state == "Player Dead") {
-        window.location.href = "lost.html";
-    };
-}
 
 
 
