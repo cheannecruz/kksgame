@@ -273,7 +273,7 @@ var level_exit = {
 //=======================================//
 function endGame($end_state) {
     if ($end_state == "Game Complete") {
-        window.location.href = "game_level2.html";
+        window.location.href = "win.html";
     } else if ($end_state == "Player Lost") {
         window.location.href = "lost.html";
     } else if ($end_state == "Player Dead") {
