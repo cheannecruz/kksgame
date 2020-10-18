@@ -163,7 +163,7 @@ var ground = {
 var backgrounds = {
     layer_1: {
         active: true,
-        image: 'assets/beach-bg-loop.png',
+        image: 'assets/beach_background.png',
         alpha: 1,
         scale: 1,
         position: {
