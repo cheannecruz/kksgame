@@ -7,7 +7,7 @@ console.log("Loading => level_2.js");
 //=======================================//
 var world_bounds = {
     height: 600,
-    width: 10986
+    width: 12075
 };
 
 var level_timer = {
@@ -188,7 +188,7 @@ var background_end = {
             y: 0
         },
         size: {
-            x: 1326,
+            x: 2415,
             y: 600
         }
     },
@@ -199,7 +199,7 @@ var background_end = {
 //=======================================//
 
 var foreground = {
-    active: true,
+    active: false,
     image: 'assets/foreground-level-1.png',
     alpha: 1,
     scale: 1,
@@ -225,13 +225,14 @@ var player_start_position = {
 //  LEVEL EXIT
 //=======================================//
 var level_exit = {
+    active: true,
     image: 'assets/door.png',
     alpha: 0,
     scale: 3,
     mass: 100,
     impactSound : 'assets/win.mp3',
     position: {
-        x: 10600,
+        x: 11900,
         y: world_bounds.height - 200
     }
 };
@@ -262,11 +263,11 @@ var timerelease_gameobjects = [   //  GameObject Placement Array
 //=======================================//
 function endGame($end_state) {
     if ($end_state == "Game Complete") {
-        window.location.href = "game_level3.html";
+        window.location.href = "win_2.html";
     } else if ($end_state == "Player Lost") {
-        window.location.href = "lost.html";
+        window.location.href = "lost_2.html";
     } else if ($end_state == "Player Dead") {
-        window.location.href = "lost.html";
+        window.location.href = "lost_2.html";
     };
 }
 
