@@ -120,7 +120,7 @@ var camera_speed = 0.1;  //  The smaller the value, the smooth the camera (and t
 var drunk_o_meter_icon = {
     active : true,              // false = disabled
     position : {                //  Starting Placement Position
-        x: 335,
+        x: 325,
         y: 47
     },
     scale: 1,
@@ -131,7 +131,7 @@ var drunk_o_meter_icon = {
         active : true,              // false = disabled
         image: 'assets/meter.png',
         position : {
-            x: 280,
+            x: 270,
             y: 10
         },
         scale: 1,
