@@ -195,6 +195,28 @@ var gameobjects = [
             y : 0
         },
     },
+
+    {
+        name : "Small Virus",
+        image : 'assets/small-virus.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : false,  // do not rotate on collision
+
+        damage : 1,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : true,
+        impactSound : 'assets/oh.mp3',
+
+        static : false,
+        movement : {
+            x : 100,
+            y : 0
+        },
+    },
      //  Create GameObject
      {
         name : "Plaftorm",

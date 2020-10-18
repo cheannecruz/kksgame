@@ -241,21 +241,38 @@ var level_exit = {
 //  TIME RELEASE OBJECTS
 //=======================================//
 var timerelease_gameobjects = [   //  GameObject Placement Array
-    /*
-     *  Example Time Released Object Placement
+
+    /*  Example Time Released Object Placement */
     {
-        name : "Bottle Water",
+        name : "Small Virus",
         time : 1,       //  When To First release object
-        repeat: 4,      //  How long to wait to repeat the release | set to 0 to not repeat release
+        repeat: 3000,      //  How long to wait to repeat the release | set to 0 to not repeat release
         position : {
-            x: 750,
+            x: 900,
             y: 0
         },
         released : false
     },
-    */
-
-
+    {
+        name : "Small Virus",
+        time : 1,       //  When To First release object
+        repeat: 3000,      //  How long to wait to repeat the release | set to 0 to not repeat release
+        position : {
+            x: 1800,
+            y: 0
+        },
+        released : false
+    },
+    {
+        name : "Small Virus",
+        time : 1,       //  When To First release object
+        repeat: 4000,      //  How long to wait to repeat the release | set to 0 to not repeat release
+        position : {
+            x: 2900,
+            y: 0
+        },
+        released : false
+    },
 ];
 
 //=======================================//
