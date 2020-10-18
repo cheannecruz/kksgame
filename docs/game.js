@@ -62,6 +62,7 @@ var player;
 var max_life_points = life_points;
 var drunk_points = 0;
 var jump_sound = null;
+var mask_on = false;
 
 //=======================================//
 //  CONTROLS
@@ -70,6 +71,8 @@ var left=false;
 var right=false;
 var jump=false;
 var jumping = false;
+var powerKey;
+var power_press= false;
 
 
 //=======================================//
@@ -78,6 +81,7 @@ var jumping = false;
 var life_text;
 var score_text;
 var drunk_text;
+var press_p_button_ui;
 
 
 
@@ -184,6 +188,14 @@ function preload() {
 
     if (life_point_icon.active) {
         game.load.image('life-point', life_point_icon.image);
+    };
+
+    if (toilet_paper_point_icon.active) {
+        game.load.image('toilet-paper-point', toilet_paper_point_icon.image);
+    };
+
+    if (press_p_icon.active) {
+        game.load.image('press-p-button', press_p_icon.image);
     };
 
     if (drunk_o_meter_icon.active) {
@@ -379,7 +391,13 @@ function gameobjectCollide(body1, body2) {
 
     if ($gameobject.impactSound != null) {
         if (game_ended == false) {
-            $gameobject.impactSound.play();
+            if (mask_on) {
+                if ($gameobject.damage < 1) {
+                    $gameobject.impactSound.play();
+                }
+            } else {
+                $gameobject.impactSound.play();
+            }
         }
     };
 
@@ -406,7 +424,7 @@ function gameobjectCollide(body1, body2) {
 
     PlayerHit($gameobject.damage);
 
-
+    PlayerToiletPaperCollect($gameobject.tp_score);
     //console.log("drunk_o_meter: ", drunk_o_meter);
 }
 
@@ -486,6 +504,8 @@ function create() {
 
     if (!game.device.desktop) { //go fullscreen on mobile devices
         game.input.onDown.add(gofull, this);
+
+        powerKey.onDown.add();
     };
 
     game.physics.startSystem(Phaser.Physics.P2JS);  //activate physics
@@ -568,10 +588,14 @@ function create() {
     player.body.mass = player_mass;
 
     // add some animations
-    player.animations.add('idle', idle_animation.frames, idle_animation.fps, idle_animation.loop);  // (key, framesarray, fps,repeat)
-    player.animations.add('walk', walk_animation.frames, walk_animation.fps, walk_animation.loop);  // (key, framesarray, fps,repeat)
+    player.animations.add('idle', idle_animation.frames, idle_animation.fps, idle_animation.loop);
+    player.animations.add('idle_mask', idle_mask_animation.frames, idle_mask_animation.fps, idle_mask_animation.loop);  // (key, framesarray, fps,repeat)
+    player.animations.add('walk', walk_animation.frames, walk_animation.fps, walk_animation.loop);
+    player.animations.add('walk_mask', walk_mask_animation.frames, walk_mask_animation.fps, walk_mask_animation.loop);  /// (key, framesarray, fps,repeat)
     player.animations.add('jump', jump_animation.frames, jump_animation.fps, jump_animation.loop);
+    player.animations.add('jump_mask', jump_mask_animation.frames, jump_mask_animation.fps, jump_mask_animation.loop);
     player.animations.add('hurt', hurt_animation.frames, hurt_animation.fps, hurt_animation.loop);
+    player.animations.add('hurt_mask', hurt_mask_animation.frames, hurt_mask_animation.fps, hurt_mask_animation.loop);
     player.animations.add('dead', dead_animation.frames, dead_animation.fps, dead_animation.loop);
 
 
@@ -622,6 +646,7 @@ function create() {
     //  INPUT
     //=======================================//
     cursors = game.input.keyboard.createCursorKeys();
+    powerKey = game.input.keyboard.addKey(Phaser.Keyboard.M);
 
 
 
@@ -694,7 +719,6 @@ function create() {
     //=======================================//
 
     life_point_icons = [];
-
     var left_alignment = 0;
 
     //  CREATE LIFE POINT ICON UI
@@ -715,6 +739,25 @@ function create() {
         };
     };
 
+    toilet_paper_point_icons = [];
+    var left_alignment = 0;
+    //  CREATE TOILET PAPER POINT ICON UI
+    if(toilet_paper_point_icon.active) {
+        left_alignment = toilet_paper_point_icon.position.x;
+        for(i = 0; i < 3; i++) {
+            toilet_paper_point_icons[i] = game.add.sprite(
+                left_alignment,
+                toilet_paper_point_icon.position.y,
+                'toilet-paper-point'
+                ); //add tiling sprite to cover the whole game world
+            toilet_paper_point_icons[i].fixedToCamera = true;
+            toilet_paper_point_icons[i].alpha = 0;
+            toilet_paper_point_icons[i].scale.x = toilet_paper_point_icon.scale;
+            toilet_paper_point_icons[i].scale.y = toilet_paper_point_icon.scale;
+
+            left_alignment += toilet_paper_point_icon.spacing;
+        };
+    };
 
 
     drunk_o_meter_icons = [];
@@ -755,6 +798,21 @@ function create() {
 
             left_alignment += drunk_o_meter_icon.spacing;
         };
+
+    };
+
+    if(press_p_icon.active) {
+
+        press_p_button_ui = game.add.sprite(
+            press_p_icon.position.x,
+            press_p_icon.position.y,
+            'press-p-button'
+        );
+
+        press_p_button_ui.scale.x = drunk_o_meter_icon.background.scale;
+        press_p_button_ui.scale.y = drunk_o_meter_icon.background.scale;
+        press_p_button_ui.fixedToCamera = true;
+        press_p_button_ui.alpha = 0;
 
     };
 
@@ -900,6 +958,11 @@ function playerDead() {
 //=======================================//
 function PlayerHit($damage) {
 
+    if (mask_on) {
+        return;
+    }
+
+    var current_life_points = life_points;
     life_points -= $damage;
 
     if (life_points > max_life_points) {
@@ -917,10 +980,6 @@ function PlayerHit($damage) {
         };
     };
 
-
-
-
-
     if ($damage < 0) {
         return;
     };
@@ -928,12 +987,46 @@ function PlayerHit($damage) {
     if (life_points <= 0) {
         playerDead();
     } else {
-        player.animations.play('hurt');
+        if (mask_on) {
+            player.animations.play('hurt_mask');
+        } else {
+            player.animations.play('hurt');
+        }
+
     };
+
+    if (current_life_points !== life_points) {
+        player.tint = 0xff0000;
+        player.animations.play('hurt');
+        setTimeout( function() {
+            console.log('huhuhu');
+            player.tint = 0xffffff;
+        }, 500);
+    }
 }
 
+//=======================================//
+//  TOILET PAPER POINTS
+//=======================================//
+function PlayerToiletPaperCollect($tpScore) {
 
+    if(toilet_paper_points < 3) {
+        toilet_paper_points += $tpScore;
 
+        if (toilet_paper_point_icon.active) {
+            toilet_paper_point_icons.forEach(function(item, index) {
+                item.alpha = 0;
+            });
+            for(i = 0; i < toilet_paper_points; i++) {
+                toilet_paper_point_icons[i].alpha = 1;
+            };
+        };
+    }
+
+    if (toilet_paper_points == 3) {
+        press_p_button_ui.alpha = 1;
+    }
+}
 
 
 //=======================================//
@@ -957,12 +1050,11 @@ function CheckDrunkOMeter() {
     };
 
     if (drunk_o_meter.overlay_image != null) {
-        drunk_o_meter_overlay.alpha = (drunk_o_meter.value/100);
+        drunk_o_meter_overlay.alpha = (drunk_o_meter.value/20);
     };
 
 
     drunk_points = Math.round(drunk_o_meter.value/10);
-
 
     if (drunk_o_meter_icon.active) {
         drunk_o_meter_icons.forEach(function(item, index) {
@@ -973,6 +1065,10 @@ function CheckDrunkOMeter() {
             drunk_o_meter_icons[i].alpha = 1;
         };
     };
+
+    if (drunk_points >= 6 ) {
+        playerDead();
+    }
 
 }
 
@@ -1044,6 +1140,7 @@ function update() {
     left = cursors.left.isDown;
     right = cursors.right.isDown;
     jump = cursors.up.isDown;
+    power_press = powerKey.isDown;
 
 
     //  PLAYER CONTROL
@@ -1053,26 +1150,42 @@ function update() {
         player.scale.x = -1;
         player.body.moveLeft(500);
         if (!jumping) {
-            player.animations.play('walk');
+            if(mask_on) {
+                player.animations.play('walk_mask');
+            } else {
+                player.animations.play('walk');
+            }
         };
     }
     else if (right) {
         player.scale.x = 1;
         player.body.moveRight(500);
         if (!jumping) {
-            player.animations.play('walk');
+            if(mask_on) {
+                player.animations.play('walk_mask');
+            } else {
+                player.animations.play('walk');
+            }
         };
     }
     else {
         if (!jumping) {
-            player.animations.play('idle');
+            if(mask_on) {
+                player.animations.play('idle_mask');
+            } else {
+                player.animations.play('idle');
+            }
         };
     };
 
 
     if (jump && !jumping){
         playerJump();
-        player.animations.play('jump');
+        if(mask_on) {
+            player.animations.play('jump_mask');
+        } else {
+            player.animations.play('jump');
+        }
     };
 
 
@@ -1082,20 +1195,24 @@ function update() {
         };
     };
 
+    if (power_press) {
+        if (toilet_paper_points >= 3) {
+            toilet_paper_points = 0;
+            PlayerToiletPaperCollect(0);
+            press_p_button_ui.alpha = 0;
+            power_sound = new Audio('assets/power.mp3');
+            power_sound.play();
 
+            mask_on = true;
 
-
-
-
-
-    if (game.input.currentPointers == 0 && !game.input.activePointer.isMouse){
-        right=false;
-        left=false;
-        jump=false;
-    }; //this works around a "bug" where a button gets stuck in pressed state
-
+            setTimeout( function() {
+                mask_on = false;
+            }, 10000);
+        }
+    }
 
     updateAllGameObjects(game);
+
 
 };
 

@@ -100,7 +100,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
-        name: "Drink 1",
+        name: "Toilet Paper 6",
         position: {
             x: 900,
             y: 150
@@ -108,35 +108,35 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Drink 1",
+        name: "Toilet Paper 6",
         position: {
             x: 1750,
             y: 250
         }
     },
     {
-        name: "Drink 1",
+        name: "Toilet Paper 6",
         position: {
             x: 2950,
             y: 450
         }
     },
     {
-        name: "Bottle Water",
+        name: "Toilet Paper 6",
         position: {
             x: 1250,
             y: 150
         }
     },
     {
-        name: "Bottle Water",
+        name: "Drink 1",
         position: {
             x: 3050,
             y: 150
         }
     },
     {
-        name: "Bottle Water",
+        name: "Drink 1",
         position: {
             x: 1950,
             y: 150
@@ -151,7 +151,7 @@ var timerelease_gameobjects = [   //  GameObject Placement Array
     /*
      *  Example Time Released Object Placement
     {
-        name : "Bottle Water",
+        name : "Drink 1",
         time : 1,       //  When To First release object
         repeat: 4,      //  How long to wait to repeat the release | set to 0 to not repeat release
         position : {

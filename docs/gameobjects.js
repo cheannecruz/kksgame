@@ -16,6 +16,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -38,6 +39,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -61,6 +63,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -83,6 +86,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -105,6 +109,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -129,6 +134,7 @@ var gameobjects = [
 
         damage : 0,
         score : -10,
+        tp_score : 0,
         alcohol : 10,
         destroyOnImpact : true,
         impactSound : 'assets/gibberish.mp3',  // Use null if no sound
@@ -140,7 +146,7 @@ var gameobjects = [
         },
 
     },
-    
+
 
     //  Create GameObject
     {
@@ -153,6 +159,7 @@ var gameobjects = [
 
         damage : -1,
         score : 10,
+        tp_score : 0,
         alcohol : -10,
         destroyOnImpact : true,
         impactSound : 'assets/water.mp3',
@@ -177,6 +184,7 @@ var gameobjects = [
 
         damage : 1,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : 'assets/oh.mp3',
@@ -198,6 +206,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -220,6 +229,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -242,6 +252,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -264,6 +275,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -285,6 +297,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -295,6 +308,29 @@ var gameobjects = [
             y : 0
         },
 
+    },
+
+    //  Create GameObject
+    {
+        name : "Toilet Paper 6",
+        image : 'assets/tp-6.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score: 0,
+        tp_score : 1,
+        alcohol : 0,
+        destroyOnImpact : true,
+        impactSound : 'assets/fart.mp3',
+
+        static : false,
+        movement : {
+            x : 0,
+            y : 0
+        },
     },
 ];
 
