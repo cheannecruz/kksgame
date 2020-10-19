@@ -15,6 +15,7 @@ var level_timer = {
     value : 25              //  Number of seconds in the timer count down
 };
 var gravity = 1200;
+var releseTimeOut = 10000;
 
 //=======================================//
 //  GAMEOBJECT PLACEMENTS
@@ -375,20 +376,22 @@ var level_exit = {
 //=======================================//
 //  TIME RELEASE OBJECTS
 //=======================================//
-var timerelease_gameobjects = [   //  GameObject Placement Array
+var timerelease_gameobjects = [];
 
-    /*  Example Time Released Object Placement */
-    {
-        name : "Small Virus",
-        time : 1,       //  When To First release object
-        repeat: 3000,      //  How long to wait to repeat the release | set to 0 to not repeat release
-        position : {
-            x: 750,
-            y: 0
+for (i=0; i <= 200; i++) {
+    timerelease_gameobjects.push(
+        {
+            name : "Small Virus",
+            time : Math.floor((Math.random()*100) + 1),       //  When To First release object
+            repeat: 0,      //  How long to wait to repeat the release | set to 0 to not repeat release
+            position : {
+                x: Math.floor(Math.random() * (12000 - 100 + 1) + 100),
+                y: 0
+            },
+            released : false
         },
-        released : false
-    },
-];
+    )
+}
 
 //=======================================//
 //  END GAME ACTIONS

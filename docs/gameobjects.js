@@ -26,7 +26,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -49,7 +48,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
 
@@ -73,7 +71,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -96,7 +93,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -119,7 +115,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
 
@@ -144,9 +139,7 @@ var gameobjects = [
             x : -50,
             y : 0
         },
-
     },
-
 
     //  Create GameObject
     {
@@ -170,8 +163,6 @@ var gameobjects = [
             y : 0
         },
     },
-
-
 
     //  Create GameObject
     {
@@ -213,7 +204,7 @@ var gameobjects = [
 
         static : false,
         movement : {
-            x : 100,
+            x : 0,
             y : 0
         },
     },
@@ -238,7 +229,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
     //  Create GameObject for level 2
     {
@@ -261,7 +251,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -284,7 +273,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -307,7 +295,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
     {
         name : "Rock 2",
@@ -329,7 +316,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     //  Create GameObject

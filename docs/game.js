@@ -309,17 +309,19 @@ function createAllGameObjects($game) {
 function timeReleaseGameObjects($game) {
 
     $.each( timerelease_gameobjects, function( key, value ) {
-        if (!value.released) {
-            if (game_time >= value.time) {
-                console.log("GameObjects => Releasing GameObject = " + value.name);
-                createGameObject(value, $game);
-                if (value.repeat > 0) {
-                    value.time = (game_time + value.repeat);
-                } else {
-                    value.released = true;
+        setTimeout( function() {
+            if (!value.released) {
+                if (game_time >= value.time) {
+                    console.log("GameObjects => Releasing GameObject = " + value.name);
+                    createGameObject(value, $game);
+                    if (value.repeat > 0) {
+                        value.time = (game_time + value.repeat);
+                    } else {
+                        value.released = true;
+                    };
                 };
             };
-        };
+        }, releseTimeOut);
     });
 
     //console.log("GameObjects => Completed Creating GameObjects");
@@ -369,8 +371,15 @@ function createGameObject($level_gameobject, $game) {
     $level_gameobject.phaser_object = new_gameobject;
     $level_gameobject.gameobject = $gameobject;
 
-
-
+    setTimeout( function() {
+        if($level_gameobject.name == 'Small Virus') {
+            new_gameobject.destroy(true);
+            new_gameobject.alive = false;
+            var pop_sound = new Audio('assets/pop.mp3');
+            pop_sound.volume = 0.2;
+            pop_sound.play();
+        }
+    }, 1000);
 }
 
 
