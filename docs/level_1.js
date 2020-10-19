@@ -257,7 +257,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
-        name: "Boxes",
+        name: "Cart 1",
         position: {
             x: 5500,
             y: 470
@@ -265,7 +265,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Cart 1",
+        name: "Boxes",
         position: {
             x: 5800,
             y: 450
@@ -305,7 +305,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Boxes",
+        name: "Basket",
         position: {
             x: 6500,
             y: 470
@@ -337,7 +337,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Boxes",
+        name: "Toilet Paper 2",
         position: {
             x: 7000,
             y: 470
@@ -361,7 +361,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Cart 2",
+        name: "Cart 1",
         position: {
             x: 8000,
             y: 450
@@ -385,7 +385,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Basket",
+        name: "Boxes",
         position: {
             x: 9000,
             y: 450
@@ -393,7 +393,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Boxes",
+        name: "Cart 1",
         position: {
             x: 9500,
             y: 450

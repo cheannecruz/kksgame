@@ -340,6 +340,174 @@ var gameobjects = [
             y : 0
         },
     },
+    {
+        name : "Box",
+        image : 'assets/box.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+    {
+        name : "Bin",
+        image : 'assets/bin.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+    {
+        name : "Bin2",
+        image : 'assets/bin2.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+    {
+        name : "Bins",
+        image : 'assets/bins.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+    {
+        name : "Bench",
+        image : 'assets/bench.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+    {
+        name : "Letter box",
+        image : 'assets/letter_box.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+    {
+        name : "Letter Box1",
+        image : 'assets/letter_box_1.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+    {
+        name : "Letter Box2",
+        image : 'assets/letter_box_2.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
 ];
 
 for (i=0; i <= 6; i++) {
