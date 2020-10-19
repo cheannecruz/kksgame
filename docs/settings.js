@@ -10,6 +10,7 @@ var debug_active = false;   //  Show Input Debug
 var jumpRate = 950;
 var jumpVelocity = 600;
 var life_points = 3;
+var toilet_paper_points = 0;
 
 var player_size = {
     height : 160,
@@ -32,11 +33,17 @@ var player_size_green_beer = {
 
 
 //  Player Animations
-var player_spritesheet = 'assets/karen-spritesheet-new.png';
+var player_spritesheet = 'assets/karen-spritesheet-3.png';
 var drink_spritesheet = 'assests/drink_spritesheet.png';
 
 var idle_animation = {
     frames  : [0],
+    fps     : 1,
+    loop    : true
+};
+
+var idle_mask_animation = {
+    frames  : [9],
     fps     : 1,
     loop    : true
 };
@@ -47,8 +54,20 @@ var walk_animation = {
     loop    : true
 };
 
+var walk_mask_animation = {
+    frames  : [10,11,12],
+    fps     : 10,
+    loop    : true
+};
+
 var jump_animation = {
     frames  : [4,5,6,7,8],
+    fps     : 5,
+    loop    : false
+};
+
+var jump_mask_animation = {
+    frames  : [13,14,15,16,17],
     fps     : 5,
     loop    : false
 };
@@ -56,6 +75,12 @@ var jump_animation = {
 
 var hurt_animation = {
     frames  : [8],
+    fps     : 1,
+    loop    : false
+};
+
+var hurt_mask_animation = {
+    frames  : [17],
     fps     : 1,
     loop    : false
 };
@@ -95,21 +120,21 @@ var camera_speed = 0.1;  //  The smaller the value, the smooth the camera (and t
 var drunk_o_meter_icon = {
     active : true,              // false = disabled
     position : {                //  Starting Placement Position
-        x: 30,
-        y: 60
+        x: 325,
+        y: 47
     },
-    scale: 0.7,
-    spacing: 10,                //  Distance between each drunk meter point
+    scale: 1,
+    spacing: 35,                //  Distance between each drunk meter point
     image: 'assets/star.png',
 
     background : {
-        active : false,              // false = disabled
-        image: 'ed-assets/platform.png',
+        active : true,              // false = disabled
+        image: 'assets/meter.png',
         position : {
-            x: 10,
-            y: 50
+            x: 270,
+            y: 10
         },
-        scale: 2,
+        scale: 1,
     }
 };
 
@@ -119,15 +144,36 @@ var life_point_icon = {
     active : true,              // false = disabled
     position : {                //  Starting Placement Position
         x: 10,
-        y: 10
+        y: 30
     },
     scale: 1,
-    spacing: 20,                //  Distance between each life point
-    image: 'assets/heart.png'
+    spacing: 40,                //  Distance between each life point
+    image: 'assets/karen-head.png'
 };
 
 
+//  Press P
+var press_p_icon = {
+    active : true,              // false = disabled
+    position : {                //  Starting Placement Position
+        x: 730,
+        y: 30
+    },
+    scale: 1,
+    spacing: 0,                //  Distance between each drunk meter point
+    image: 'assets/press-p.png',
+};
 
+var toilet_paper_point_icon_x = {
+    active : true,              // false = disabled
+    position : {                //  Starting Placement Position
+        x: 600,
+        y: 30
+    },
+    scale: 1,
+    spacing: 40,                //  Distance between each life point
+    image: 'assets/tp-icon-x.png'
+};
 
 
 
@@ -160,7 +206,7 @@ var life_text_ui = {
 
 
 var score_text_ui = {
-    active: true,
+    active: false,
     text_preceding: "",      //      eg. "Score: "
     font: {
         font: "25px Hind",       //    Add GoogleFont Name Here
@@ -168,12 +214,25 @@ var score_text_ui = {
         align: "center"
     },
     position : {
-        x: 400,
+        x: 650,
         y: 10
     }
 };
 
 
+var tp_score_text_ui = {
+    active: true,
+    text_preceding: "",      //      eg. "Score: "
+    font: {
+        font: "36px Hind",       //    Add GoogleFont Name Here
+        fill: "#cc0099",
+        align: "center"
+    },
+    position : {
+        x: 670,
+        y: 30
+    }
+};
 
 var drunk_text_ui = {
     active: false,

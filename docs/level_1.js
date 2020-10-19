@@ -26,11 +26,93 @@ var gravity = 1200;
 //  GAMEOBJECT PLACEMENTS
 //=======================================//
 var level_gameobjects = [ //  GameObject Placement Array
-
+    {
+        name: "Big Virus",
+        position: {
+            x: 150,
+            y: 150
+        }
+    },
     {
         name: "Cart 1",
         position: {
             x: 1000,
+            y: 450
+        }
+    },
+
+    {
+        name: "Level 1 Platform",
+        position: {
+            x: 1200,
+            y: 300
+        }
+    },
+
+    {
+        name: "Toilet Paper 1",
+        position: {
+            x: 1250,
+            y: 150
+        }
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 1300,
+            y: 450
+        }
+    },
+
+    {
+        name: "Toilet Paper 2",
+        position: {
+            x: 2000,
+            y: 250
+        }
+    },
+
+    {
+        name: "Boxes",
+        position: {
+            x: 1500,
+            y: 460
+        }
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 1950,
+            y: 150
+        },
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+
+    {
+        name: "Cart 2",
+        position: {
+            x: 2000,
+            y: 450
+        }
+    },
+
+    {
+        name: "Boxes",
+        position: {
+            x: 2500,
+            y: 460
+        }
+    },
+
+    {
+        name: "Toilet Paper 3",
+        position: {
+            x: 2950,
             y: 450
         }
     },
@@ -44,33 +126,65 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Cart 2",
+        name: "Drink 1",
         position: {
-            x: 2000,
-            y: 450
+            x: 3050,
+            y: 150
         }
     },
+
     {
-        name: "Cart 2",
+        name: "Drink 1",
+        position: {
+            x: 3100,
+            y: 300
+        },
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+
+    {
+        name: "Bottle Water",
+        position: {
+            x: 3200,
+            y: 300
+        }
+    },
+
+    {
+        name: "Level 1 Platform",
+        position: {
+            x: 3220,
+            y: 300
+        },
+    },
+
+    {
+        name: "Boxes",
         position: {
             x: 3500,
-            y: 450
-        }
-    },
-    {
-        name: "Boxes",
-        position: {
-            x: 1500,
             y: 460
         }
     },
+
     {
-        name: "Boxes",
+        name: "Drink 1",
         position: {
-            x: 2500,
-            y: 460
+            x: 3550,
+            y: 150
         }
     },
+
+    {
+        name: "Level 1 Platform",
+        position: {
+            x: 3720,
+            y: 300
+        },
+    },
+
     {
         name: "Basket",
         position: {
@@ -79,10 +193,32 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
+        name: "Drink 1",
+        position: {
+            x: 4000,
+            y: 450
+        }
+    },
+
+    {
         name: "Boxes",
         position: {
             x: 4500,
             y: 460
+        }
+    },
+    {
+        name: "Drink 1",
+        position: {
+            x: 4800,
+            y: 450
+        }
+    },
+    {
+        name: "Drink 1",
+        position: {
+            x: 4900,
+            y: 450
         }
     },
     {
@@ -93,77 +229,207 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
-        name: "Big Virus",
+        name: "Level 1 Platform",
         position: {
-            x: 150,
-            y: 150
+            x: 5150,
+            y: 310
+        },
+    },
+    {
+        name: "Drink 1",
+        position: {
+            x: 5300,
+            y: 450
+        }
+    },
+    {
+        name: "Toilet Paper 5",
+        position: {
+            x: 5300,
+            y: 450
         }
     },
     {
         name: "Drink 1",
         position: {
-            x: 900,
-            y: 150
+            x: 4900,
+            y: 450
+        }
+    },
+    {
+        name: "Boxes",
+        position: {
+            x: 5500,
+            y: 470
+        }
+    },
+
+    {
+        name: "Cart 1",
+        position: {
+            x: 5800,
+            y: 450
+        }
+    },
+
+    {
+        name: "Toilet Paper 6",
+        position: {
+            x: 5800,
+            y: 450
+        }
+    },
+
+    {
+        name: "Cart 2",
+        position: {
+            x: 6000,
+            y: 450
         }
     },
 
     {
         name: "Drink 1",
         position: {
-            x: 1750,
-            y: 250
-        }
-    },
-    {
-        name: "Drink 1",
-        position: {
-            x: 2950,
+            x: 6100,
             y: 450
         }
     },
+
     {
-        name: "Bottle Water",
+        name: "Level 1 Platform",
         position: {
-            x: 1250,
-            y: 150
+            x: 6200,
+            y: 310
+        },
+    },
+
+    {
+        name: "Boxes",
+        position: {
+            x: 6500,
+            y: 470
         }
     },
+
     {
-        name: "Bottle Water",
+        name: "Drink 1",
         position: {
-            x: 3050,
-            y: 150
+            x: 6600,
+            y: 450
         }
     },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 6800,
+            y: 450
+        }
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 6900,
+            y: 450
+        }
+    },
+
+    {
+        name: "Boxes",
+        position: {
+            x: 7000,
+            y: 470
+        }
+    },
+
+    {
+        name: "Level 1 Platform",
+        position: {
+            x: 7200,
+            y: 310
+        },
+    },
+
     {
         name: "Bottle Water",
         position: {
-            x: 1950,
-            y: 150
+            x: 7200,
+            y: 310
+        },
+    },
+
+    {
+        name: "Cart 2",
+        position: {
+            x: 8000,
+            y: 450
         }
-    }
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 8200,
+            y: 450
+        }
+    },
+
+    {
+        name: "Basket",
+        position: {
+            x: 8500,
+            y: 450
+        }
+    },
+
+    {
+        name: "Basket",
+        position: {
+            x: 9000,
+            y: 450
+        }
+    },
+
+    {
+        name: "Boxes",
+        position: {
+            x: 9500,
+            y: 450
+        }
+    },
+
+    {
+        name: "Level 1 Platform",
+        position: {
+            x: 9700,
+            y: 310
+        },
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 10000,
+            y: 450
+        }
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 10200,
+            y: 450
+        }
+    },
+
 ];
 
 //=======================================//
 //  TIME RELEASE OBJECTS
 //=======================================//
-var timerelease_gameobjects = [   //  GameObject Placement Array
-    /*
-     *  Example Time Released Object Placement
-    {
-        name : "Bottle Water",
-        time : 1,       //  When To First release object
-        repeat: 4,      //  How long to wait to repeat the release | set to 0 to not repeat release
-        position : {
-            x: 750,
-            y: 0
-        },
-        released : false
-    },
-    */
-
-
-];
+var timerelease_gameobjects = [];
 
 //=======================================//
 //  GROUND

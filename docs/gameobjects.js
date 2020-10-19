@@ -16,6 +16,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -25,7 +26,29 @@ var gameobjects = [
             x : 0,
             y : 0
         },
+    },
 
+    //  Create GameObject
+    {
+        name : "Level 1 Platform",
+        image : 'assets/level-1-platform.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
     },
 
     {
@@ -38,6 +61,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -47,7 +71,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
 
@@ -61,6 +84,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -70,7 +94,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -83,6 +106,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -92,7 +116,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -105,6 +128,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -114,7 +138,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
 
@@ -129,6 +152,7 @@ var gameobjects = [
 
         damage : 0,
         score : -10,
+        tp_score : 0,
         alcohol : 10,
         destroyOnImpact : true,
         impactSound : 'assets/gibberish.mp3',  // Use null if no sound
@@ -138,9 +162,7 @@ var gameobjects = [
             x : -50,
             y : 0
         },
-
     },
-    
 
     //  Create GameObject
     {
@@ -153,6 +175,7 @@ var gameobjects = [
 
         damage : -1,
         score : 10,
+        tp_score : 0,
         alcohol : -10,
         destroyOnImpact : true,
         impactSound : 'assets/water.mp3',
@@ -163,8 +186,6 @@ var gameobjects = [
             y : 0
         },
     },
-
-
 
     //  Create GameObject
     {
@@ -177,6 +198,7 @@ var gameobjects = [
 
         damage : 1,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : 'assets/oh.mp3',
@@ -184,6 +206,28 @@ var gameobjects = [
         static : false,
         movement : {
             x : 100,
+            y : 0
+        },
+    },
+
+    {
+        name : "Small Virus",
+        image : 'assets/small-virus.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : false,  // do not rotate on collision
+
+        damage : 1,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : true,
+        impactSound : 'assets/oh.mp3',
+
+        static : false,
+        movement : {
+            x : 0,
             y : 0
         },
     },
@@ -198,6 +242,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -207,7 +252,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
     //  Create GameObject for level 2
     {
@@ -220,6 +264,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -229,7 +274,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -242,6 +286,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -251,7 +296,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 
     {
@@ -264,6 +308,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -273,7 +318,6 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
     {
         name : "Rock 2",
@@ -285,6 +329,7 @@ var gameobjects = [
 
         damage : 0,
         score : 0,
+        tp_score : 0,
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
@@ -294,9 +339,34 @@ var gameobjects = [
             x : 0,
             y : 0
         },
-
     },
 ];
+
+for (i=0; i <= 6; i++) {
+    gameobjects.push(
+        {
+            name : "Toilet Paper " + i,
+            image : 'assets/tp-'+ i +'.png',
+            alpha : 1,
+            scale: 1,
+            mass: 1,
+            fixedRotation : true,  // do not rotate on collision
+
+            damage : 0,
+            score: 0,
+            tp_score : 1,
+            alcohol : 0,
+            destroyOnImpact : true,
+            impactSound : 'assets/fart.mp3',
+
+            static : false,
+            movement : {
+                x : 0,
+                y : 0
+            },
+        },
+    )
+}
 
 
 //=======================================//

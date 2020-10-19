@@ -7,7 +7,7 @@ console.log("Loading => level_2.js");
 //=======================================//
 var world_bounds = {
     height: 600,
-    width: 10986
+    width: 12075
 };
 
 var level_timer = {
@@ -17,6 +17,7 @@ var level_timer = {
 };
 
 var gravity = 1200;
+var releseTimeOut = 10000;
 
 //=======================================//
 //  GAMEOBJECT PLACEMENTS
@@ -209,7 +210,7 @@ var background_end = {
             y: 0
         },
         size: {
-            x: 1326,
+            x: 2415,
             y: 600
         }
     },
@@ -220,7 +221,7 @@ var background_end = {
 //=======================================//
 
 var foreground = {
-    active: true,
+    active: false,
     image: 'assets/foreground-level-1.png',
     alpha: 1,
     scale: 1,
@@ -246,13 +247,14 @@ var player_start_position = {
 //  LEVEL EXIT
 //=======================================//
 var level_exit = {
+    active: true,
     image: 'assets/door.png',
     alpha: 0,
     scale: 3,
     mass: 100,
     impactSound : 'assets/win.mp3',
     position: {
-        x: 10600,
+        x: 11900,
         y: world_bounds.height - 200
     }
 };
@@ -260,34 +262,33 @@ var level_exit = {
 //=======================================//
 //  TIME RELEASE OBJECTS
 //=======================================//
-var timerelease_gameobjects = [   //  GameObject Placement Array
-    /*
-     *  Example Time Released Object Placement
-    {
-        name : "Bottle Water",
-        time : 1,       //  When To First release object
-        repeat: 4,      //  How long to wait to repeat the release | set to 0 to not repeat release
-        position : {
-            x: 750,
-            y: 0
+var timerelease_gameobjects = [];
+
+for (i=0; i <= 100; i++) {
+    timerelease_gameobjects.push(
+        {
+            name : "Small Virus",
+            time : Math.floor((Math.random()*100) + 1),       //  When To First release object
+            repeat: 0,      //  How long to wait to repeat the release | set to 0 to not repeat release
+            position : {
+                x: Math.floor(Math.random() * (12000 - 100 + 1) + 100),
+                y: 0
+            },
+            released : false
         },
-        released : false
-    },
-    */
-
-
-];
+    )
+}
 
 //=======================================//
 //  END GAME ACTIONS
 //=======================================//
 function endGame($end_state) {
     if ($end_state == "Game Complete") {
-        window.location.href = "game_level3.html";
+        window.location.href = "win_2.html";
     } else if ($end_state == "Player Lost") {
-        window.location.href = "lost.html";
+        window.location.href = "lost_2.html";
     } else if ($end_state == "Player Dead") {
-        window.location.href = "lost.html";
+        window.location.href = "lost_2.html";
     };
 }
 
