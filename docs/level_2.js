@@ -189,7 +189,7 @@ var background_end = {
             y: 0
         },
         size: {
-            x: 1326,
+            x: 2415,
             y: 600
         }
     },

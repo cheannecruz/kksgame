@@ -80,6 +80,7 @@ var power_press= false;
 //=======================================//
 var life_text;
 var score_text;
+var tp_score_text;
 var drunk_text;
 var press_p_button_ui;
 
@@ -190,8 +191,8 @@ function preload() {
         game.load.image('life-point', life_point_icon.image);
     };
 
-    if (toilet_paper_point_icon.active) {
-        game.load.image('toilet-paper-point', toilet_paper_point_icon.image);
+    if (toilet_paper_point_icon_x.active) {
+        game.load.image('toilet-paper-point', toilet_paper_point_icon_x.image);
     };
 
     if (press_p_icon.active) {
@@ -539,7 +540,10 @@ function create() {
     //=======================================//
 
     bg_sound = this.sound.add('bg_music',0.2,true);
-    bg_sound.play();
+
+    setTimeout( function() {
+        bg_sound.play();
+    }, 1000);
 
     //  BACKGROUND LAYER 1
     if (backgrounds.layer_1.active) {
@@ -748,24 +752,19 @@ function create() {
         };
     };
 
-    toilet_paper_point_icons = [];
+    //toilet_paper_point_icons = [];
     var left_alignment = 0;
     //  CREATE TOILET PAPER POINT ICON UI
-    if(toilet_paper_point_icon.active) {
-        left_alignment = toilet_paper_point_icon.position.x;
-        for(i = 0; i < 3; i++) {
-            toilet_paper_point_icons[i] = game.add.sprite(
-                left_alignment,
-                toilet_paper_point_icon.position.y,
-                'toilet-paper-point'
-                ); //add tiling sprite to cover the whole game world
-            toilet_paper_point_icons[i].fixedToCamera = true;
-            toilet_paper_point_icons[i].alpha = 0;
-            toilet_paper_point_icons[i].scale.x = toilet_paper_point_icon.scale;
-            toilet_paper_point_icons[i].scale.y = toilet_paper_point_icon.scale;
+    if(toilet_paper_point_icon_x.active) {
+        toilet_paper_point_icons_x = game.add.sprite(
+            toilet_paper_point_icon_x.position.x,
+            toilet_paper_point_icon_x.position.y,
+            'toilet-paper-point'
+            ); //add tiling sprite to cover the whole game world
+        toilet_paper_point_icons_x.fixedToCamera = true;
+        toilet_paper_point_icons_x.scale.x = toilet_paper_point_icon_x.scale;
+        toilet_paper_point_icons_x.scale.y = toilet_paper_point_icon_x.scale;
 
-            left_alignment += toilet_paper_point_icon.spacing;
-        };
     };
 
 
@@ -857,8 +856,15 @@ function create() {
         score_text.fixedToCamera = true;
     };
 
-
-
+    if(tp_score_text_ui.active) {
+        tp_score_text = game.add.text(
+            tp_score_text_ui.position.x,
+            tp_score_text_ui.position.y,
+            tp_score_text_ui.text_preceding,
+            tp_score_text_ui.font
+            );
+        tp_score_text.fixedToCamera = true;
+    };
 
     if(drunk_text_ui.active) {
         drunk_text = game.add.text(
@@ -893,6 +899,10 @@ function updateUI() {
 
     if(score_text_ui.active) {
         score_text.setText(score_text_ui.text_preceding + score);
+    };
+
+    if(tp_score_text_ui.active) {
+        tp_score_text.setText(tp_score_text_ui.text_preceding + toilet_paper_points);
     };
 
     if(drunk_text_ui.active) {
@@ -1019,20 +1029,10 @@ function PlayerHit($damage) {
 //=======================================//
 function PlayerToiletPaperCollect($tpScore) {
 
-    if(toilet_paper_points < 3) {
-        toilet_paper_points += $tpScore;
 
-        if (toilet_paper_point_icon.active) {
-            toilet_paper_point_icons.forEach(function(item, index) {
-                item.alpha = 0;
-            });
-            for(i = 0; i < toilet_paper_points; i++) {
-                toilet_paper_point_icons[i].alpha = 1;
-            };
-        };
-    }
+    toilet_paper_points += $tpScore;
 
-    if (toilet_paper_points == 3) {
+    if (toilet_paper_points >= 3) {
         press_p_button_ui.alpha = 1;
     }
 }
@@ -1206,7 +1206,7 @@ function update() {
 
     if (power_press) {
         if (toilet_paper_points >= 3) {
-            toilet_paper_points = 0;
+            toilet_paper_points = toilet_paper_points - 3;
             PlayerToiletPaperCollect(0);
             press_p_button_ui.alpha = 0;
             power_sound = new Audio('assets/power.mp3');

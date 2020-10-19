@@ -28,6 +28,29 @@ var gameobjects = [
         },
     },
 
+    //  Create GameObject
+    {
+        name : "Level 1 Platform",
+        image : 'assets/level-1-platform.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+
     {
         name : "Cart 1",
         image : 'assets/market-cart-1.png',
@@ -317,30 +340,33 @@ var gameobjects = [
             y : 0
         },
     },
-
-    //  Create GameObject
-    {
-        name : "Toilet Paper 6",
-        image : 'assets/tp-6.png',
-        alpha : 1,
-        scale: 1,
-        mass: 1,
-        fixedRotation : true,  // do not rotate on collision
-
-        damage : 0,
-        score: 0,
-        tp_score : 1,
-        alcohol : 0,
-        destroyOnImpact : true,
-        impactSound : 'assets/fart.mp3',
-
-        static : false,
-        movement : {
-            x : 0,
-            y : 0
-        },
-    },
 ];
+
+for (i=0; i <= 6; i++) {
+    gameobjects.push(
+        {
+            name : "Toilet Paper " + i,
+            image : 'assets/tp-'+ i +'.png',
+            alpha : 1,
+            scale: 1,
+            mass: 1,
+            fixedRotation : true,  // do not rotate on collision
+
+            damage : 0,
+            score: 0,
+            tp_score : 1,
+            alcohol : 0,
+            destroyOnImpact : true,
+            impactSound : 'assets/fart.mp3',
+
+            static : false,
+            movement : {
+                x : 0,
+                y : 0
+            },
+        },
+    )
+}
 
 
 //=======================================//

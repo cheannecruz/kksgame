@@ -144,7 +144,7 @@ var life_point_icon = {
     active : true,              // false = disabled
     position : {                //  Starting Placement Position
         x: 10,
-        y: 10
+        y: 30
     },
     scale: 1,
     spacing: 40,                //  Distance between each life point
@@ -157,23 +157,22 @@ var press_p_icon = {
     active : true,              // false = disabled
     position : {                //  Starting Placement Position
         x: 730,
-        y: 10
+        y: 30
     },
     scale: 1,
     spacing: 0,                //  Distance between each drunk meter point
     image: 'assets/press-p.png',
 };
 
-
-var toilet_paper_point_icon = {
+var toilet_paper_point_icon_x = {
     active : true,              // false = disabled
     position : {                //  Starting Placement Position
         x: 600,
-        y: 10
+        y: 30
     },
     scale: 1,
     spacing: 40,                //  Distance between each life point
-    image: 'assets/tp-icon.png'
+    image: 'assets/tp-icon-x.png'
 };
 
 
@@ -215,12 +214,25 @@ var score_text_ui = {
         align: "center"
     },
     position : {
-        x: 400,
+        x: 650,
         y: 10
     }
 };
 
 
+var tp_score_text_ui = {
+    active: true,
+    text_preceding: "",      //      eg. "Score: "
+    font: {
+        font: "36px Hind",       //    Add GoogleFont Name Here
+        fill: "#cc0099",
+        align: "center"
+    },
+    position : {
+        x: 670,
+        y: 30
+    }
+};
 
 var drunk_text_ui = {
     active: false,
