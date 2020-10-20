@@ -217,7 +217,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
-        name: "Basket",
+        name: "Bin",
         position: {
             x: 5000,
             y: 470
