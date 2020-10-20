@@ -20,6 +20,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -43,6 +44,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -65,6 +67,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -88,6 +91,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -110,6 +114,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -132,6 +137,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -143,8 +149,31 @@ var gameobjects = [
 
     //  Create GameObject
     {
+        name : "Burper Coke",
+        image : 'assets/burper-coke.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : true,
+        impactSound : 'assets/burp.mp3',  // Use null if no sound
+        immunity: null,
+
+        static : false,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+
+    {
         name : "Drink 1",
-        image : 'assets/drink.png',
+        image : 'assets/beer-one-sprite.png',
         alpha : 1,
         scale: 1,
         mass: 1,
@@ -156,6 +185,53 @@ var gameobjects = [
         alcohol : 10,
         destroyOnImpact : true,
         impactSound : 'assets/gibberish.mp3',  // Use null if no sound
+        immunity: null,
+
+        static : false,    // lock movement off
+        movement : {
+            x : -50,
+            y : 0
+        },
+    },
+
+    {
+        name : "Holy Sanitizer",
+        image : 'assets/sanitizer-sprite.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : true,
+        impactSound : 'assets/holy.mp3',  // Use null if no sound
+        immunity: true,
+
+        static : false,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
+
+    {
+        name : "Drink 2",
+        image : 'assets/beer-two-sprite.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : -10,
+        tp_score : 0,
+        alcohol : 10,
+        destroyOnImpact : true,
+        impactSound : 'assets/gibberish.mp3',  // Use null if no sound
+        immunity: null,
 
         static : false,    // lock movement off
         movement : {
@@ -179,6 +255,7 @@ var gameobjects = [
         alcohol : -10,
         destroyOnImpact : true,
         impactSound : 'assets/water.mp3',
+        immunity: null,
 
         static : false,
         movement : {
@@ -193,7 +270,7 @@ var gameobjects = [
         image : 'assets/big-virus.png',
         alpha : 1,
         scale: 1,
-        mass: 100,
+        mass: 80,
         fixedRotation : false,  // do not rotate on collision
 
         damage : 1,
@@ -202,10 +279,11 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : 'assets/oh.mp3',
+        immunity: null,
 
         static : false,
         movement : {
-            x : 100,
+            x : 150,
             y : 0
         },
     },
@@ -224,6 +302,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : true,
         impactSound : 'assets/oh.mp3',
+        immunity: null,
 
         static : false,
         movement : {
@@ -246,6 +325,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -268,6 +348,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -290,6 +371,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -312,6 +394,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -333,6 +416,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -354,6 +438,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -375,6 +460,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -396,6 +482,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -417,6 +504,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -438,6 +526,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -459,6 +548,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -480,6 +570,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -501,6 +592,7 @@ var gameobjects = [
         alcohol : 0,
         destroyOnImpact : false,
         impactSound : null,
+        immunity: null,
 
         static : true,    // lock movement off
         movement : {
@@ -526,6 +618,7 @@ for (i=0; i <= 6; i++) {
             alcohol : 0,
             destroyOnImpact : true,
             impactSound : 'assets/fart.mp3',
+            immunity: null,
 
             static : false,
             movement : {

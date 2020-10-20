@@ -91,6 +91,18 @@ var dead_animation = {
     loop    : false
 };
 
+var drink_one_animation = {
+    frames  : [0,1,2,3],
+    fps     : 7,
+    loop    : true
+};
+
+var holy_animation = {
+    frames  : [0,1,2,3,4],
+    fps     : 7,
+    loop    : true
+};
+
 
 
 
@@ -157,7 +169,7 @@ var press_p_icon = {
     active : true,              // false = disabled
     position : {                //  Starting Placement Position
         x: 730,
-        y: 30
+        y: 10
     },
     scale: 1,
     spacing: 0,                //  Distance between each drunk meter point

@@ -63,6 +63,7 @@ var max_life_points = life_points;
 var drunk_points = 0;
 var jump_sound = null;
 var mask_on = false;
+var player_immune = false;
 
 //=======================================//
 //  CONTROLS
@@ -178,7 +179,6 @@ function preload() {
     };
 
 
-
     game.load.image('exit', level_exit.image);
 
 
@@ -271,7 +271,17 @@ function preloadGameObject($gameobject) {
     console.log("Preload GameObject => " + $gameobject.name);
 
     //  Preload Image
-    game.load.image($gameobject.name, $gameobject.image);
+
+    if ($gameobject.name == 'Drink 1') {
+        game.load.spritesheet($gameobject.name, $gameobject.image, 67, 75);
+    } else if ($gameobject.name == 'Drink 2') {
+        game.load.spritesheet($gameobject.name, $gameobject.image, 67, 81);
+    } else if ($gameobject.name == 'Holy Sanitizer') {
+        game.load.spritesheet($gameobject.name, $gameobject.image, 100, 83);
+    } else {
+        game.load.image($gameobject.name, $gameobject.image);
+    }
+
     //game.add.audio($gameobject.name + ' - Impact Sound', $gameobject.impactSound);
 
     if ($gameobject.impactSound != null) {
@@ -347,6 +357,14 @@ function createGameObject($level_gameobject, $game) {
 
     new_gameobject = $game.add.sprite($level_gameobject.position.x, $level_gameobject.position.y, $gameobject.name);
 
+    if ($level_gameobject.name == 'Drink 1' || $level_gameobject.name == 'Drink 2') {
+        new_gameobject.animations.add('drink', drink_one_animation.frames, drink_one_animation.fps, drink_one_animation.loop);
+        new_gameobject.animations.play('drink', 7, true);
+    } else if ($level_gameobject.name == 'Holy Sanitizer') {
+        new_gameobject.animations.add('holy', holy_animation.frames, holy_animation.fps, holy_animation.loop);
+        new_gameobject.animations.play('holy', 7, true);
+    }
+
     new_gameobject.scale.set($gameobject.scale, $gameobject.scale);
 
     //  ADD PHYSICS
@@ -371,6 +389,8 @@ function createGameObject($level_gameobject, $game) {
     //  Add created gameobject to levelobjects
     $level_gameobject.phaser_object = new_gameobject;
     $level_gameobject.gameobject = $gameobject;
+
+
 
     setTimeout( function() {
         if($level_gameobject.name == 'Small Virus') {
@@ -401,10 +421,10 @@ function gameobjectCollide(body1, body2) {
 
     if ($gameobject.impactSound != null) {
         if (game_ended == false) {
-            if (mask_on) {
-                if ($gameobject.damage < 1) {
-                    $gameobject.impactSound.play();
-                }
+            if (mask_on || player_immune) {
+                // if ($gameobject.damage < 1) {
+                //     $gameobject.impactSound.play();
+                // }
             } else {
                 $gameobject.impactSound.play();
             }
@@ -435,6 +455,8 @@ function gameobjectCollide(body1, body2) {
     PlayerHit($gameobject.damage);
 
     PlayerToiletPaperCollect($gameobject.tp_score);
+
+    PlayerSanitize($gameobject.immunity);
     //console.log("drunk_o_meter: ", drunk_o_meter);
 }
 
@@ -963,21 +985,12 @@ function playerDead() {
     }
 }
 
-
-
-
-
-
-
-
-
-
 //=======================================//
 //  LIFE POINTS
 //=======================================//
 function PlayerHit($damage) {
 
-    if (mask_on) {
+    if (mask_on || player_immune) {
         return;
     }
 
@@ -1015,7 +1028,7 @@ function PlayerHit($damage) {
     };
 
     if (current_life_points !== life_points) {
-        player.tint = 0xff0000;
+        player.tint = 0xFC9384;
         player.animations.play('hurt');
         setTimeout( function() {
             console.log('huhuhu');
@@ -1034,6 +1047,22 @@ function PlayerToiletPaperCollect($tpScore) {
 
     if (toilet_paper_points >= 3) {
         press_p_button_ui.alpha = 1;
+    }
+}
+
+//=======================================//
+//  TOILET PAPER POINTS
+//=======================================//
+function PlayerSanitize($immunity) {
+
+    if ($immunity == true) {
+        player_immune = true;
+        player.tint = 0x73C3F3;
+        setTimeout( function() {
+            console.log('holy');
+            player_immune = false;
+            player.tint = 0xffffff;
+        }, 10000);
     }
 }
 
@@ -1106,9 +1135,6 @@ function LevelTimerUpdate () {
     };
 
 }
-
-
-
 
 
 //=======================================//
