@@ -134,7 +134,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Drink 1",
+        name: "Drink 2",
         position: {
             x: 3100,
             y: 300
@@ -160,7 +160,6 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 300
         },
     },
-
     {
         name: "Boxes",
         position: {
@@ -184,7 +183,13 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 300
         },
     },
-
+    {
+        name: "Holy Sanitizer",
+        position: {
+            x: 3720,
+            y: 300
+        },
+    },
     {
         name: "Basket",
         position: {
@@ -208,7 +213,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
-        name: "Drink 1",
+        name: "Drink 2",
         position: {
             x: 4800,
             y: 450
@@ -230,6 +235,13 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
     {
         name: "Level 1 Platform",
+        position: {
+            x: 5150,
+            y: 310
+        },
+    },
+    {
+        name: "Burper Coke",
         position: {
             x: 5150,
             y: 310
@@ -321,7 +333,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Drink 1",
+        name: "Drink 2",
         position: {
             x: 6800,
             y: 450
@@ -337,7 +349,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Toilet Paper 2",
+        name: "Boxes",
         position: {
             x: 7000,
             y: 470
@@ -417,7 +429,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Drink 1",
+        name: "Drink 2",
         position: {
             x: 10200,
             y: 450

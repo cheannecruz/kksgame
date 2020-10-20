@@ -2,6 +2,10 @@
 console.log("Loading => level_2.js");
 //=======================================//
 
+bigVirus = gameobjects.findIndex((obj => obj.name == "Big Virus"));
+
+gameobjects[bigVirus].movement.x = 150;
+
 //=======================================//
 //  WORLD
 //=======================================//
@@ -24,7 +28,7 @@ var releseTimeOut = 10000;
 //=======================================//
 var level_gameobjects = [ //  GameObject Placement Array
 
-    { 
+    {
         name: "Drink 1",
         position: {
             x: 900,
@@ -67,7 +71,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 150
         }
     },
-  
+
     {
         name: "Treasure",
         position: {
@@ -76,7 +80,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
 
-    { 
+    {
         name: "Drink 1",
         position: {
             x: 1700,
@@ -134,8 +138,8 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 150
         }
     },
-   
-    { 
+
+    {
         name: "Drink 1",
         position: {
             x: 2950,
@@ -155,7 +159,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
 
-   
+
     {
         name: "Level 1 Platform",
         position: {
@@ -164,7 +168,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
 
-   
+
     {
         name: "Castle",
         position: {
@@ -172,7 +176,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
-    { 
+    {
         name: "Drink 1",
         position: {
             x: 3300,
@@ -191,7 +195,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 470
         }
     },
-    { 
+    {
         name: "Drink 1",
         position: {
             x: 3750,
@@ -210,7 +214,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 250
         }
     },
-    { 
+    {
         name: "Drink 1",
         position: {
             x: 4150,
@@ -235,7 +239,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 4500,
             y: 460
         }
-    },   
+    },
     {
         name: "Treasure",
         position: {
@@ -250,7 +254,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 470
         }
     },
-    { 
+    {
         name: "Drink 1",
         position: {
             x: 5150,
@@ -450,10 +454,10 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 150
         }
     },
-    
-    
-   
-    
+
+
+
+
 ];
 
 //=======================================//

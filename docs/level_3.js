@@ -2,6 +2,10 @@
 console.log("Loading => level_3.js");
 //=======================================//
 
+bigVirus = gameobjects.findIndex((obj => obj.name == "Big Virus"));
+
+gameobjects[bigVirus].movement.x = 200;
+
 //=======================================//
 //  WORLD
 //=======================================//
