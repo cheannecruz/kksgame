@@ -600,6 +600,29 @@ var gameobjects = [
             y : 0
         },
     },
+
+    {
+        name : "Plant",
+        image : 'assets/plant.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : 0,
+        tp_score : 0,
+        alcohol : 0,
+        destroyOnImpact : false,
+        impactSound : null,
+        immunity: null,
+
+        static : true,    // lock movement off
+        movement : {
+            x : 0,
+            y : 0
+        },
+    },
 ];
 
 for (i=0; i <= 6; i++) {

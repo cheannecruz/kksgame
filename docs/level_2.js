@@ -31,7 +31,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Drink 1",
         position: {
-            x: 900,
+            x: 1000,
             y: 150
         },
         movement : {
@@ -41,17 +41,9 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Rock 1",
-        position: {
-            x: 1000,
-            y: 450
-        }
-    },
-
-    {
         name: "Level 1 Platform",
         position: {
-            x: 1100,
+            x: 1250,
             y: 400
         },
     },
@@ -60,14 +52,14 @@ var level_gameobjects = [ //  GameObject Placement Array
         name: "Toilet Paper 1",
         position: {
             x: 1250,
-            y: 150
+            y: 400
         }
     },
 
     {
         name: "Bottle Water",
         position: {
-            x: 1350,
+            x: 1500,
             y: 150
         }
     },
@@ -75,7 +67,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Treasure",
         position: {
-            x: 1500,
+            x: 1800,
             y: 460
         }
     },
@@ -83,7 +75,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Drink 1",
         position: {
-            x: 1700,
+            x: 2050,
             y: 300
         },
         movement : {
@@ -95,7 +87,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Bottle Water",
         position: {
-            x: 1750,
+            x: 2200,
             y: 150
         }
     },
@@ -103,15 +95,15 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Toilet Paper 2",
         position: {
-            x: 2000,
-            y: 250
+            x: 2350,
+            y: 350
         }
     },
 
     {
         name: "Level 1 Platform",
         position: {
-            x: 2150,
+            x: 2350,
             y: 350
         },
     },
@@ -119,30 +111,15 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Castle",
         position: {
-            x: 2450,
+            x: 2850,
             y: 450
-        }
-    },
-    {
-        name: "Treasure",
-        position: {
-            x: 2600,
-            y: 460
-        }
-    },
-
-    {
-        name: "Bottle Water",
-        position: {
-            x: 2750,
-            y: 150
         }
     },
 
     {
         name: "Drink 1",
         position: {
-            x: 2950,
+            x: 3100,
             y: 450
         },
         movement : {
@@ -150,36 +127,18 @@ var level_gameobjects = [ //  GameObject Placement Array
             y : 0
         },
     },
-
     {
         name: "Rock 1",
         position: {
-            x: 3000,
+            x: 3350,
             y: 450
         }
-    },
+    },   
 
-
-    {
-        name: "Level 1 Platform",
-        position: {
-            x: 3100,
-            y: 500
-        }
-    },
-
-
-    {
-        name: "Castle",
-        position: {
-            x: 3200,
-            y: 450
-        }
-    },
     {
         name: "Drink 1",
         position: {
-            x: 3300,
+            x: 3600,
             y: 300
         },
         movement : {
@@ -189,16 +148,16 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-        name: "Rock 2",
+        name: "Castle",
         position: {
-            x: 3500,
+            x: 3850,
             y: 470
         }
     },
     {
         name: "Drink 1",
         position: {
-            x: 3750,
+            x: 4100,
             y: 300
         },
         movement : {
@@ -207,17 +166,33 @@ var level_gameobjects = [ //  GameObject Placement Array
         },
     },
 
+    {
+        name: "Level 1 Platform",
+        position: {
+            x: 4250,
+            y: 350
+        },
+    },
     {
         name: "Toilet Paper 2",
         position: {
-            x: 4000,
-            y: 250
+            x: 4250,
+            y: 350
         }
     },
+   
+    {
+        name: "Castle",
+        position: {
+            x: 4700,
+            y: 460
+        }
+    },
+
     {
         name: "Drink 1",
         position: {
-            x: 4150,
+            x: 5000,
             y: 300
         },
         movement : {
@@ -225,39 +200,19 @@ var level_gameobjects = [ //  GameObject Placement Array
             y : 0
         },
     },
+      
+    
     {
-        name: "Level 1 Platform",
+        name: "Rock 1",
         position: {
-            x: 4350,
-            y: 500
-        },
-    },
-
-    {
-        name: "Rock 2",
-        position: {
-            x: 4500,
-            y: 460
-        }
-    },
-    {
-        name: "Treasure",
-        position: {
-            x: 4750,
-            y: 460
-        }
-    },
-    {
-        name: "Castle",
-        position: {
-            x: 5000,
+            x: 5200,
             y: 470
         }
     },
     {
         name: "Drink 1",
         position: {
-            x: 5150,
+            x: 5650,
             y: 300
         },
         movement : {
@@ -266,135 +221,48 @@ var level_gameobjects = [ //  GameObject Placement Array
         },
     },
     {
-        name: "Rock 1",
+        name: "Treasure",
         position: {
-            x: 5250,
-            y: 450
+            x: 5900,
+            y: 470
         }
     },
     {
-        name: "Level 1 Platform",
+        name: "Drink 1",
         position: {
-            x: 5350,
-            y: 500
-        },
-    },
-    {
-        name: "Treasure",
-        position: {
-            x: 5500,
-            y: 460
+            x: 6150,
+            y: 450
         }
     },
 
     {
-        name: "Castle",
+        name: "Level 1 Platform",
         position: {
-            x: 5800,
-            y: 450
-        }
+            x: 6400,
+            y: 350
+        },
     },
 
     {
         name: "Toilet Paper 6",
         position: {
-            x: 5800,
-            y: 450
-        }
-    },
-
-    {
-        name: "Castle",
-        position: {
-            x: 6000,
-            y: 450
-        }
-    },
-
-    {
-        name: "Drink 1",
-        position: {
-            x: 6100,
-            y: 450
-        }
-    },
-
-    {
-        name: "Level 1 Platform",
-        position: {
-            x: 6200,
-            y: 310
-        },
-    },
-
-    {
-        name: "Treasure",
-        position: {
-            x: 6500,
-            y: 470
-        }
-    },
-
-    {
-        name: "Drink 1",
-        position: {
-            x: 6600,
-            y: 450
-        }
-    },
-
-    {
-        name: "Drink 1",
-        position: {
-            x: 6800,
-            y: 450
-        }
-    },
-
-    {
-        name: "Drink 1",
-        position: {
-            x: 6900,
-            y: 450
+            x: 6400,
+            y: 350
         }
     },
 
     {
         name: "Rock 2",
         position: {
-            x: 7000,
+            x: 6700,
             y: 470
-        }
-    },
-
-    {
-        name: "Level 1 Platform",
-        position: {
-            x: 7200,
-            y: 310
-        },
-    },
-
-    {
-        name: "Bottle Water",
-        position: {
-            x: 7200,
-            y: 310
-        },
-    },
-
-    {
-        name: "Treasure",
-        position: {
-            x: 8000,
-            y: 450
         }
     },
 
     {
         name: "Drink 1",
         position: {
-            x: 8200,
+            x: 6950,
             y: 450
         }
     },
@@ -402,7 +270,37 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Castle",
         position: {
-            x: 8500,
+            x: 7100,
+            y: 450
+        }
+    },
+    {
+        name: "Drink 2",
+        position: {
+            x: 7350,
+            y: 450
+        }
+    },
+
+    {
+        name: "Level 1 Platform",
+        position: {
+            x: 7600,
+            y: 400
+        },
+    },
+    {
+        name: "Holy Sanitizer",
+        position: {
+            x: 7600,
+            y: 400
+        },
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 7900,
             y: 450
         }
     },
@@ -410,7 +308,15 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Rock 1",
         position: {
-            x: 9000,
+            x: 8150,
+            y: 350
+        },
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 8450,
             y: 450
         }
     },
@@ -418,23 +324,39 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Castle",
         position: {
-            x: 9500,
+            x: 8700,
             y: 450
         }
     },
 
     {
-        name: "Level 1 Platform",
+        name: "Drink 2",
+        position: {
+            x: 8950,
+            y: 450
+        }
+    },
+
+    {
+        name: "Rock 2",
+        position: {
+            x: 9200,
+            y: 450
+        }
+    },
+
+    {
+        name: "Drink 1",
+        position: {
+            x: 9450,
+            y: 450
+        }
+    },
+
+    {
+        name: "Treasure",
         position: {
             x: 9700,
-            y: 310
-        },
-    },
-
-    {
-        name: "Drink 1",
-        position: {
-            x: 10000,
             y: 450
         }
     },
@@ -442,7 +364,23 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Drink 1",
         position: {
+            x: 9950,
+            y: 450
+        }
+    },
+
+    {
+        name: "Rock 1",
+        position: {
             x: 10200,
+            y: 450
+        }
+    },
+
+    {
+        name: "Castle",
+        position: {
+            x: 10800,
             y: 450
         }
     },
@@ -454,9 +392,6 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 150
         }
     },
-
-
-
 
 ];
 
