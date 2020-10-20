@@ -446,7 +446,7 @@ var gameobjects = [
         },
     },
     {
-        name : "Letter box",
+        name : "Letter Box",
         image : 'assets/letter_box.png',
         alpha : 1,
         scale: 1,

@@ -252,7 +252,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
-        name: "Rock1",
+        name: "Rock 1",
         position: {
             x: 5500,
             y: 470
@@ -419,6 +419,29 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 ];
 
+//=======================================//
+//  GROUND
+//=======================================//
+
+var ground = {
+    active: true,
+    image: 'assets/clear-ground-tile.png',
+    alpha: 1,
+    scale: 1,
+    position: {
+        x: 0,
+        y: world_bounds.height - 85,
+    },
+    size: {
+        x: world_bounds.width * 2,
+        y: 30,
+    }
+};
+
+//=======================================//
+//  BACKGROUNDS
+//=======================================//
+
 var backgrounds = {
     layer_1: {
         active: true,
@@ -447,7 +470,7 @@ var background_end = {
             y: 0
         },
         size: {
-            x: 1326,
+            x: 2415,
             y: 600
         }
     },
