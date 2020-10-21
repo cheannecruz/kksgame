@@ -73,7 +73,20 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
+<<<<<<< HEAD
         name: "Martini",
+=======
+        name: "Burper Coke",
+        position: {
+            x: 1800,
+            y: 310
+        },
+    },
+
+
+    {
+        name: "Drink 1",
+>>>>>>> 3aba73c40792233700ac93a85116ab01be83b0a9
         position: {
             x: 2050,
             y: 150
@@ -127,7 +140,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 3350,
             y: 450
         }
-    },   
+    },
 
     {
         name: "Wine",
@@ -174,7 +187,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 460
         }
     },
-   
+
     {
         name: "Castle",
         position: {
@@ -190,8 +203,8 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 300
         },
     },
-      
-    
+
+
     {
         name: "Rock 1",
         position: {
@@ -218,7 +231,19 @@ var level_gameobjects = [ //  GameObject Placement Array
         }
     },
     {
+<<<<<<< HEAD
         name: "Wine",
+=======
+        name: "Burper Coke",
+        position: {
+            x: 5900,
+            y: 310
+        },
+    },
+
+    {
+        name: "Drink 1",
+>>>>>>> 3aba73c40792233700ac93a85116ab01be83b0a9
         position: {
             x: 6150,
             y: 450

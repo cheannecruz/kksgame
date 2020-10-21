@@ -165,6 +165,14 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
+        name: "Box",
+        position: {
+            x: 4300,
+            y: 460
+        }
+    },
+
+    {
         name: "Level 1 Platform",
         position: {
             x: 4500,
@@ -266,7 +274,13 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
-
+    {
+        name: "Burper Coke",
+        position: {
+            x: 7450,
+            y: 310
+        },
+    },
     {
         name: "Bench",
         position: {
@@ -333,7 +347,13 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
-
+    {
+        name: "Burper Coke",
+        position: {
+            x: 9050,
+            y: 310
+        },
+    },
     {
         name: "Orange Bottle",
         position: {
@@ -365,6 +385,14 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 10050,
             y: 450
         }
+    },
+
+    {
+        name: "Burper Coke",
+        position: {
+            x: 10350,
+            y: 310
+        },
     },
 
     {

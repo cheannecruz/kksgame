@@ -36,7 +36,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Cart 1",
         position: {
-            x: 850,
+            x: 1050,
             y: 450
         }
     },
@@ -74,7 +74,19 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
+<<<<<<< HEAD
         name: "Drink 2",
+=======
+        name: "Burper Coke",
+        position: {
+            x: 1800,
+            y: 310
+        },
+    },
+
+    {
+        name: "Drink 1",
+>>>>>>> 3aba73c40792233700ac93a85116ab01be83b0a9
         position: {
             x: 2050,
             y: 150
@@ -141,6 +153,25 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 300
         }
     },
+<<<<<<< HEAD
+=======
+
+    {
+        name: "Burper Coke",
+        position: {
+            x: 3300,
+            y: 310
+        },
+    },
+
+    {
+        name: "Boxes",
+        position: {
+            x: 3300,
+            y: 460
+        },
+    },
+>>>>>>> 3aba73c40792233700ac93a85116ab01be83b0a9
     {
         name: "Basket",
         position: {
@@ -155,6 +186,14 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 3850,
             y: 150
         }
+    },
+
+    {
+        name: "Boxes",
+        position: {
+            x: 3950,
+            y: 460
+        },
     },
 
     {
@@ -266,7 +305,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Cart 2",
         position: {
-            x: 7150,
+            x: 7450,
             y: 450
         }
     },
@@ -333,7 +372,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 8700,
             y: 470
         }
-    }, 
+    },
     {
         name: "Bottle Water",
         position: {
