@@ -74,9 +74,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
-<<<<<<< HEAD
         name: "Drink 2",
-=======
         name: "Burper Coke",
         position: {
             x: 1800,
@@ -86,7 +84,6 @@ var level_gameobjects = [ //  GameObject Placement Array
 
     {
         name: "Drink 1",
->>>>>>> 3aba73c40792233700ac93a85116ab01be83b0a9
         position: {
             x: 2050,
             y: 150
@@ -153,8 +150,6 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 300
         }
     },
-<<<<<<< HEAD
-=======
 
     {
         name: "Burper Coke",
@@ -171,7 +166,6 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 460
         },
     },
->>>>>>> 3aba73c40792233700ac93a85116ab01be83b0a9
     {
         name: "Basket",
         position: {
@@ -232,7 +226,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 450
         }
     },
-   
+
     {
         name: "Basket",
         position: {

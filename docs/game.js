@@ -1100,7 +1100,11 @@ function CheckDrunkOMeter() {
         });
 
         for(i = 0; i < drunk_points; i++) {
-            drunk_o_meter_icons[i].alpha = 1;
+            if (i <= 5 ) {
+                drunk_o_meter_icons[i].alpha = 1;
+            } else {
+                drunk_o_meter_icons[i].alpha = 0;
+            }
         };
     };
 
