@@ -104,7 +104,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         name: "Level 1 Platform",
         position: {
             x: 2350,
-            y: 350
+            y: 400
         },
     },
 
@@ -133,7 +133,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 3350,
             y: 450
         }
-    },   
+    },
 
     {
         name: "Drink 1",
@@ -170,7 +170,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         name: "Level 1 Platform",
         position: {
             x: 4250,
-            y: 350
+            y: 400
         },
     },
     {
@@ -180,7 +180,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             y: 350
         }
     },
-   
+
     {
         name: "Castle",
         position: {
@@ -200,8 +200,8 @@ var level_gameobjects = [ //  GameObject Placement Array
             y : 0
         },
     },
-      
-    
+
+
     {
         name: "Rock 1",
         position: {
@@ -239,7 +239,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         name: "Level 1 Platform",
         position: {
             x: 6400,
-            y: 350
+            y: 400
         },
     },
 
@@ -309,7 +309,7 @@ var level_gameobjects = [ //  GameObject Placement Array
         name: "Rock 1",
         position: {
             x: 8150,
-            y: 350
+            y: 450
         },
     },
 

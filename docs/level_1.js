@@ -36,7 +36,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Cart 1",
         position: {
-            x: 850,
+            x: 1050,
             y: 450
         }
     },
@@ -169,6 +169,14 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
+        name: "Boxes",
+        position: {
+            x: 3950,
+            y: 460
+        },
+    },
+
+    {
         name: "Level 1 Platform",
         position: {
             x: 4150,
@@ -264,7 +272,7 @@ var level_gameobjects = [ //  GameObject Placement Array
     {
         name: "Cart 2",
         position: {
-            x: 7150,
+            x: 7450,
             y: 450
         }
     },
@@ -323,7 +331,7 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 8700,
             y: 470
         }
-    }, 
+    },
     {
         name: "Bottle Water",
         position: {
