@@ -189,7 +189,7 @@ var gameobjects = [
 
         static : false,    // lock movement off
         movement : {
-            x : -50,
+            x : -10,
             y : 0
         },
     },
@@ -235,7 +235,98 @@ var gameobjects = [
 
         static : false,    // lock movement off
         movement : {
-            x : -50,
+            x : -10,
+            y : 0
+        },
+    },
+
+    {
+        name : "Wine",
+        image : 'assets/wine.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : -10,
+        tp_score : 0,
+        alcohol : 20,
+        destroyOnImpact : true,
+        impactSound : 'assets/gibberish.mp3',  // Use null if no sound
+        immunity: null,
+
+        static : false,    // lock movement off
+        movement : {
+            x : -10,
+            y : 0
+        },
+    },
+
+    {
+        name : "Rum",
+        image : 'assets/rum.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : -10,
+        tp_score : 0,
+        alcohol : 25,
+        destroyOnImpact : true,
+        impactSound : 'assets/gibberish.mp3',  // Use null if no sound
+        immunity: null,
+
+        static : false,    // lock movement off
+        movement : {
+            x : -10,
+            y : 0
+        },
+    },
+    {
+        name : "Orange Bottle",
+        image : 'assets/orange-bottle.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : -10,
+        tp_score : 0,
+        alcohol : 30,
+        destroyOnImpact : true,
+        impactSound : 'assets/gibberish.mp3',  // Use null if no sound
+        immunity: null,
+
+        static : false,    // lock movement off
+        movement : {
+            x : -10,
+            y : 0
+        },
+    },
+
+    {
+        name : "Martini",
+        image : 'assets/martini.png',
+        alpha : 1,
+        scale: 1,
+        mass: 1,
+        fixedRotation : true,  // do not rotate on collision
+
+        damage : 0,
+        score : -10,
+        tp_score : 0,
+        alcohol : 25,
+        destroyOnImpact : true,
+        impactSound : 'assets/gibberish.mp3',  // Use null if no sound
+        immunity: null,
+
+        static : false,    // lock movement off
+        movement : {
+            x : -10,
             y : 0
         },
     },
