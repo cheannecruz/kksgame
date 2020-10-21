@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Keep Karen Sober</title>
+        <script src="js/jquery.min.js"></script>
         <link rel="stylesheet" href="style/main.css" />
     </head>
 
@@ -16,6 +17,19 @@
             <a id="start-button" href="game.html">
                 <img class="idle" src="assets/start.png" alt="START">
             </a>
+
+            <div id="game-disclaimer">
+                <div class="content">
+                    <p>This is a work of fiction. Names, characters, businesses, places, events, locales, and incidents are either the products of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</p>
+                </div>
+            </div>
         </div>
     </body>
+
+    <script>
+        $("document").ready(function() {
+            $("#game-ui").delay(10000).fadeIn();
+            $("#game-disclaimer").delay(10000).fadeOut();
+        });
+    </script>
 </html>
