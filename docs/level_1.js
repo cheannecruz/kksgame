@@ -74,6 +74,14 @@ var level_gameobjects = [ //  GameObject Placement Array
     },
 
     {
+        name: "Burper Coke",
+        position: {
+            x: 1800,
+            y: 310
+        },
+    },
+
+    {
         name: "Drink 1",
         position: {
             x: 2050,
@@ -143,6 +151,14 @@ var level_gameobjects = [ //  GameObject Placement Array
             x: 3500,
             y: 300
         }
+    },
+
+    {
+        name: "Burper Coke",
+        position: {
+            x: 3300,
+            y: 310
+        },
     },
 
     {
