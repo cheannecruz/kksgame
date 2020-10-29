@@ -18,11 +18,10 @@ Karen can be controlled using the following keyboard keys:
  - **Up Arrow key**: To jump
  - **M Letter** key: To use Face Mask power-up
 
- Karen can also use a Face mask power-up.
 
 ## Game Collectibles
 
-During all levels of the game, collectable items will be available to help Karen get home. They will work for 10 seconds and provide different advantages:
+During all levels of the game, collectable items will be available to help Karen get home:
 
  - **Face Mask**: protection against virus for 10 seconds
  - **Holy Sanitizer**: protection against virus for 10 seconds
